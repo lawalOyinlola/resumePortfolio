@@ -14,6 +14,8 @@ export type Project = {
   };
   /** Public URL (site, repository, demo, or video). */
   link: string;
+  /** Optional image URL (absolute or path under /public). */
+  image?: string;
   /** Tags/technologies for chips or filtering. */
   skills: string[];
   /** Optional rich description; Markdown and line breaks supported. */

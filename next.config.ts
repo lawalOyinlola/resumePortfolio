@@ -6,13 +6,15 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["chanhdai-macbook.local"],
   devIndicators: false,
   images: {
-    domains: [
-      "api.microlink.io", // Microlink Image Preview
-    ],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "assets.chanhdai.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
         port: "",
       },
     ],

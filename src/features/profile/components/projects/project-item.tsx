@@ -95,6 +95,9 @@ export function ProjectItem({
 
               <LinkPreview
                 url={project.link}
+                {...(project.image
+                  ? { imageSrc: project.image, isStatic: true }
+                  : { isStatic: false })}
                 className="flex items-center justify-center"
               >
                 <LinkIcon className="pointer-events-none size-5 text-muted-foreground" />
