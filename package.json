@@ -49,7 +49,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "dayjs": "^1.11.13",
-    "fumadocs-core": "^15.5.0",
+    "fumadocs-core": "^16.7.4",
     "jotai": "^2.12.5",
     "libphonenumber-js": "^1.12.4",
     "lucide-react": "^0.516.0",
@@ -70,7 +70,7 @@
     "swr": "^2.3.3",
     "tailwind-merge": "^3.3.1",
     "vcard-creator": "^0.7.2",
-    "zod": "^3.24.2"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
@@ -114,7 +114,7 @@
     "@types/react-dom": "19.2.3"
   },
   "engines": {
-    "node": "20 || >=22",
+    "node": "22.x",
     "pnpm": ">=9"
   },
   "packageManager": "pnpm@10.10.0"
