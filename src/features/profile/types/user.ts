@@ -1,6 +1,7 @@
 export type User = {
   firstName: string;
   lastName: string;
+  middleName?: string;
   /** Preferred public-facing name */
   displayName: string;
   /** Handle/username used in links or mentions */

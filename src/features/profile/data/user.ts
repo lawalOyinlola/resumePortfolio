@@ -3,6 +3,7 @@ import type { User } from "@/features/profile/types/user";
 export const USER: User = {
   firstName: "Oyinlola",
   lastName: "Lawal",
+  middleName: "Ibrahim",
   displayName: "Lawal Oyinlola",
   username: "yero",
   gender: "male",
