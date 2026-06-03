@@ -37,7 +37,9 @@ function getPersonJsonLd(): WithContext<Person> {
     "@type": "Person",
     "@id": `${SITE_INFO.url}#person`,
     name: USER.displayName,
-    alternateName: `${USER.firstName} Ibrahim ${USER.lastName}`,
+    alternateName: USER.middleName
+      ? `${USER.firstName} ${USER.middleName} ${USER.lastName}`
+      : USER.displayName,
     identifier: USER.username,
     jobTitle: USER.jobTitle,
     description: USER.bio,
