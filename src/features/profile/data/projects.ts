@@ -2,6 +2,68 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
+    id: "trakkam",
+    title: "Trakkam — Multi-Tenant GPS Fleet-Management SaaS",
+    period: { start: "01.2025" },
+    link: "https://trakkam.com/",
+    image: "/images/projects/trakkam.png",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Mapbox GL",
+      "Socket.io",
+      "NestJS",
+      "Prisma",
+      "MariaDB",
+      "GPS/IoT",
+      "Self-hosted",
+    ],
+    description: `A multi-tenant GPS fleet-management SaaS I designed and shipped end to end. Real-time vehicle tracking over WebSockets, interactive Mapbox geofencing, trip history, an alerts inbox, and a 7-tier role-based access model.
+Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD), running roughly 8× cheaper than the equivalent managed setup.`,
+    isExpanded: true,
+  },
+  {
+    id: "marketgist",
+    title: "MarketGist — Real-Time Stock Market Dashboard",
+    period: { start: "09.2025" },
+    link: "https://marketgist.vercel.app/",
+    image: "/images/projects/marketgist.png",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Better Auth",
+      "Inngest",
+      "Charts",
+      "AI",
+      "REST",
+      "Performance",
+      "Accessibility",
+    ],
+    description:
+      "A stock-market app with AI-powered market insights, real-time price updates, advanced search, personalized stock alerts, interactive charts, and automated daily news summaries.",
+    isExpanded: true,
+  },
+  {
+    id: "lia",
+    title: "LIA — LinkedIn Intelligent Assistant",
+    period: { start: "03.2025" },
+    link: "https://www.getlia.live/",
+    image: "/images/projects/lia_extension.png",
+    skills: [
+      "Chrome Extension",
+      "AI",
+      "TypeScript",
+      "React",
+      "LinkedIn API",
+      "Automation",
+    ],
+    description:
+      "An AI-powered LinkedIn assistant that automates content generation, networking outreach, and engagement — helping professionals grow their presence without the manual grind.",
+    isExpanded: true,
+  },
+  {
     id: "safulpay-app",
     title: "SafulPay (FinTech App)",
     period: { start: "08.2023" },
@@ -18,41 +80,46 @@ export const PROJECTS: Project[] = [
       "Multi-wallet",
     ],
     description: `Mobile money app for individuals, agents and merchants with instant money transfers, bill payments and multi-wallet support.
-- iOS: https://apps.apple.com/ng/app/safulpay/id6480344064
-- Android: https://play.google.com/store/apps/details?id=com.techengood.safulpay`,
+    - iOS: https://apps.apple.com/ng/app/safulpay/id6480344064
+    - Android: https://play.google.com/store/apps/details?id=com.techengood.safulpay`,
+  },
+  {
+    id: "safulpay-website",
+    title: "SafulPay Website",
+    period: { start: "11.2024" },
+    link: "https://safulpay.com/",
+    image: "/images/projects/safulpay_hero.png",
+    skills: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
+    description:
+      "SafulPay company website with pixel-perfect UI optimized for speed, accessibility and clear product storytelling.",
+  },
+  {
+    id: "khariar",
+    title: "Khariar — AI-Powered ATS & Career Platform",
+    period: { start: "10.2025" },
+    link: "https://khariar.vercel.app/",
+    image: "/images/projects/khariar_home.png",
+    skills: ["Next.js", "TypeScript", "Gemini API", "AI", "ATS", "Career"],
+    description:
+      "A highly interactive career platform integrating the Gemini API for real-time, dynamic resume evaluation with ATS optimization and personalized feedback.",
     isExpanded: true,
   },
   {
-    id: "marketgist",
-    title: "MarketGist (Real-Time Stock Market Dashboard)",
-    period: { start: "09.2025" },
-    link: "https://marketgist.vercel.app/",
-    image: "/images/projects/Screenshot-marketgist.png",
-    skills: [
-      "Stock Market",
-      "Analytics",
-      "Charts",
-      "AI",
-      "API",
-      "REST",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "Performance",
-      "Accessibility",
-    ],
-
-    description: `A comprehensive stock market app featuring AI-powered market insights, real-time price updates, advanced search functionality, and personalized stock alerts with interactive charts for data visualization and automated daily news summaries.
-`,
-    isExpanded: true,
+    id: "zentry-clone",
+    title: "Zentry Clone — Awwwards-Inspired Creative Site",
+    period: { start: "11.2024" },
+    link: "https://zentryclone-awwwards.vercel.app/",
+    image: "/images/projects/zentry_projects.png",
+    skills: ["React", "GSAP", "Tailwind CSS", "TypeScript", "Creative Dev"],
+    description:
+      "A pixel-faithful recreation of an Awwwards-winning site, built to practice advanced GSAP scroll animations, clip-path transitions, and high-end creative frontend techniques.",
   },
   {
     id: "resolve",
     title: "Resolve — Online Voting",
     period: { start: "01.2025" },
     link: "https://resolve.vote/",
-    image: "/images/projects/Screenshot-resolve.png",
+    image: "/images/projects/resolve_hero.png",
     skills: [
       "Next.js",
       "TypeScript",
@@ -65,16 +132,35 @@ export const PROJECTS: Project[] = [
       "Secure online voting for organizations. Built with accessible, responsive UI and performance best practices.",
   },
   {
+    id: "taskpilot",
+    title: "Task Pilot — Vue 3 Task Manager",
+    period: { start: "08.2023", end: "10.2023" },
+    link: "https://taskpilot-lawal.vercel.app/",
+    image: "/images/projects/taskpilot_hero.png",
+    skills: ["Vue 3", "Reka UI", "TypeScript", "LZ-compression"],
+    description:
+      "A task manager with screenshot export and LZ-compressed shareable task URLs, so a full task board can be shared without any backend.",
+  },
+  {
     id: "scissorsweb",
     title: "ScissorsWeb — URL Shortener, Analytics & QR Code",
     period: { start: "1.2024" },
     link: "https://scissorsweb.netlify.app/",
-    image: "/images/projects/Screenshot-scissors.png",
+    image: "/images/projects/scissors_analytics.png",
     skills: ["React", "TypeScript", "Supabase", "GSAP", "Analytics"],
     description:
-      "URL shortener with QR generation, analytics, auth and storage.",
+      "URL shortener with QR generation, click/device/geo analytics, auth and storage.",
   },
-
+  {
+    id: "lumina-dice",
+    title: "Lumina Dice",
+    period: { start: "06.2024" },
+    link: "https://lumina-dice.vercel.app/",
+    image: "/images/projects/lumina_winner.png",
+    skills: ["React", "TypeScript", "Animation", "Game"],
+    description:
+      "An animated dice game with polished winner effects and smooth UI transitions.",
+  },
   {
     id: "safulpay-agency",
     title: "SafulPay — Agency Banking Performance Portal",
@@ -96,17 +182,6 @@ export const PROJECTS: Project[] = [
       "Merchant web app for bulk payments and collections with REST integrations.",
   },
   {
-    id: "safulpay-website",
-    title: "SafulPay Website",
-    period: { start: "11.2024" },
-    link: "https://safulpay.com/",
-    image: "/images/projects/Screenshot-safulpay-website.png",
-    skills: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
-    description:
-      "SafulPay company website with pixel-perfect UI optimized for speed, accessibility and clear product storytelling.",
-  },
-
-  {
     id: "chatwith-isime",
     title: "Chat With Isime — Text Processing AI",
     period: { start: "02.2025" },
@@ -119,7 +194,7 @@ export const PROJECTS: Project[] = [
       "Summarization API",
     ],
     description:
-      "Leverages Chrome Origin Trials APIs (Detector, Summarization and Translation) for real-time language detection and translation.",
+      "Uses Chrome Origin Trials APIs (Detector, Summarization and Translation) for real-time language detection and translation.",
   },
   {
     id: "worldwise-yero",
