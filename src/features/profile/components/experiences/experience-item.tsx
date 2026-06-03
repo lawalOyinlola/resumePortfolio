@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 import type { Experience } from "../../types/experiences";
 import { ExperiencePositionItem } from "./experience-position-item";
@@ -16,8 +15,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
               width={24}
               height={24}
               quality={100}
-              className="rounded-full"
-              unoptimized
+              className="size-full rounded-full object-contain"
               aria-hidden
             />
           ) : (

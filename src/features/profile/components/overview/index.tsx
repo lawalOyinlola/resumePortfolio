@@ -34,7 +34,7 @@ export function Overview() {
 
         <IntroItem
           icon={GlobeIcon}
-          content={urlToName(USER.website)}
+          content={`${urlToName(USER.website)} [View Portfolio]`}
           href={USER.website}
         />
 
