@@ -80,8 +80,8 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
       "Multi-wallet",
     ],
     description: `Mobile money app for individuals, agents and merchants with instant money transfers, bill payments and multi-wallet support.
-    - iOS: https://apps.apple.com/ng/app/safulpay/id6480344064
-    - Android: https://play.google.com/store/apps/details?id=com.techengood.safulpay`,
+- iOS: https://apps.apple.com/ng/app/safulpay/id6480344064
+- Android: https://play.google.com/store/apps/details?id=com.techengood.safulpay`,
   },
   {
     id: "safulpay-website",

@@ -5,9 +5,9 @@ A minimalist résumé and portfolio site for **Lawal Oyinlola**, Frontend Engine
 Live: **[resume.lawaloyinlola.com](https://resume.lawaloyinlola.com)** · Main portfolio: **[lawaloyinlola.com](https://lawaloyinlola.com)**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/public/images/screenshot-dark.webp">
-  <source media="(prefers-color-scheme: light)" srcset="/public/images/screenshot.webp">
-  <img src="/public/images/screenshot-dark.webp" alt="Screenshot of resume.lawaloyinlola.com">
+  <source media="(prefers-color-scheme: dark)" srcset="public/images/screenshot-dark.webp">
+  <source media="(prefers-color-scheme: light)" srcset="public/images/screenshot.webp">
+  <img src="public/images/screenshot-dark.webp" alt="Screenshot of resume.lawaloyinlola.com">
 </picture>
 
 ## Overview

@@ -91,8 +91,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Keep multiple tabs in sync.
   useEffect(() => {
     const onStorage = (event: StorageEvent) => {
-      if (event.key === THEME_STORAGE_KEY && event.newValue) {
-        setThemeState(event.newValue as Theme);
+      if (event.key !== THEME_STORAGE_KEY || !event.newValue) return;
+      if (
+        event.newValue === "light" ||
+        event.newValue === "dark" ||
+        event.newValue === "system"
+      ) {
+        setThemeState(event.newValue);
       }
     };
     window.addEventListener("storage", onStorage);
