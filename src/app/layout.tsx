@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import dayjs from "dayjs";
 import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
-import type { ProfilePage, WebSite, WithContext } from "schema-dts";
+import type { Person, ProfilePage, WebSite, WithContext } from "schema-dts";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -31,60 +31,66 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
   };
 }
 
+function getPersonJsonLd(): WithContext<Person> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_INFO.url}#person`,
+    name: USER.displayName,
+    alternateName: `${USER.firstName} Ibrahim ${USER.lastName}`,
+    identifier: USER.username,
+    jobTitle: USER.jobTitle,
+    description: USER.bio,
+    url: USER.website,
+    image: `${SITE_INFO.url}${USER.avatar}`,
+    email: `mailto:${decodeEmail(USER.email)}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lagos",
+      addressCountry: "NG",
+    },
+    worksFor: USER.jobs.map((job) => ({
+      "@type": "Organization",
+      name: job.company,
+    })),
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "AltSchool Africa" },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Federal University of Agriculture, Abeokuta",
+      },
+    ],
+    knowsAbout: [
+      "Frontend Engineering",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Web Accessibility",
+      "Web Performance",
+      "UI Engineering",
+      "Full-Stack Development",
+      "NestJS",
+      "Node.js",
+      "Prisma",
+      "WebSockets",
+      "Mapbox GL",
+      "Docker",
+      "CI/CD",
+      "LLM Integration",
+    ],
+    sameAs: [USER.website, ...SOCIAL_LINKS.map((link) => link.href)],
+  };
+}
+
 function getProfilePageJsonLd(): WithContext<ProfilePage> {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     dateCreated: dayjs(USER.dateCreated).toISOString(),
     dateModified: dayjs(USER.dateCreated).toISOString(),
-    mainEntity: {
-      "@type": "Person",
-      name: USER.displayName,
-      alternateName: `${USER.firstName} Ibrahim ${USER.lastName}`,
-      identifier: USER.username,
-      jobTitle: USER.jobTitle,
-      description: USER.bio,
-      url: USER.website,
-      image: `${SITE_INFO.url}${USER.avatar}`,
-      email: `mailto:${decodeEmail(USER.email)}`,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lagos",
-        addressCountry: "NG",
-      },
-      worksFor: USER.jobs.map((job) => ({
-        "@type": "Organization",
-        name: job.company,
-      })),
-      alumniOf: [
-        { "@type": "CollegeOrUniversity", name: "AltSchool Africa" },
-        {
-          "@type": "CollegeOrUniversity",
-          name: "Federal University of Agriculture, Abeokuta",
-        },
-      ],
-      knowsAbout: [
-        "Frontend Engineering",
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "Web Accessibility",
-        "Web Performance",
-        "UI Engineering",
-        "Full-Stack Development",
-        "NestJS",
-        "Node.js",
-        "Prisma",
-        "WebSockets",
-        "Mapbox GL",
-        "Docker",
-        "CI/CD",
-        "LLM Integration",
-      ],
-      sameAs: [USER.website, ...SOCIAL_LINKS.map((link) => link.href)],
-    },
+    mainEntity: { "@type": "Person", "@id": `${SITE_INFO.url}#person` },
   };
 }
 
@@ -139,8 +145,19 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
       {
+        url: "/favicon/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
         url: "/favicon/favicon-32x32.png",
         type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "/favicon/favicon-16x16.png",
+        type: "image/png",
+        sizes: "16x16",
       },
     ],
     apple: {
@@ -193,6 +210,12 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getPersonJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
         <script
