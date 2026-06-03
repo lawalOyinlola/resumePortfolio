@@ -5,7 +5,6 @@ import {
   LinkIcon,
 } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
@@ -16,10 +15,7 @@ import {
 } from "@/components/ui/collapsible";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { Tag } from "@/components/ui/tag";
-import { SimpleTooltip } from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
-import { UTM_PARAMS } from "@/config/site";
-import { addQueryParams } from "@/utils/url";
 
 import type { Project } from "../../types/projects";
 
@@ -58,7 +54,7 @@ export function ProjectItem({
           )}
 
           <div className="flex-1 border-l border-dashed border-edge">
-            <CollapsibleTrigger className="group/project flex w-full items-center gap-4 p-4 pr-2 text-left select-none">
+            <CollapsibleTrigger className="group/project flex min-h-11 w-full items-center gap-4 p-4 pr-2 text-left select-none">
               <div className="flex-1">
                 <h3 className="mb-1 leading-snug font-medium text-balance">
                   {project.title}
@@ -84,21 +80,12 @@ export function ProjectItem({
                 </dl>
               </div>
 
-              <SimpleTooltip content="Open Project Link">
-                <a
-                  className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
-                  href={addQueryParams(project.link, UTM_PARAMS)}
-                  target="_blank"
-                  rel="noopener"
-                ></a>
-              </SimpleTooltip>
-
               <LinkPreview
                 url={project.link}
                 {...(project.image
                   ? { imageSrc: project.image, isStatic: true }
                   : { isStatic: false })}
-                className="flex items-center justify-center"
+                className="flex min-h-11 min-w-11 items-center justify-center"
               >
                 <LinkIcon className="pointer-events-none size-5 text-muted-foreground" />
                 <span className="sr-only">Open Project Link</span>

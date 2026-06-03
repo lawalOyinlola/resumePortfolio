@@ -1,78 +1,46 @@
-# Lawal Oyinlola's Portfolio
+# Lawal Oyinlola — Résumé / Portfolio
 
-A minimalist portfolio, component registry, and blog inspired by [chanhdai.com](https://chanhdai.com) to showcase my work as a Frontend Developer.
+A minimalist résumé and portfolio site for **Lawal Oyinlola**, Frontend Engineer (full-stack capable). Built and maintained by Lawal Oyinlola, on top of the open-source [chanhdai.com](https://chanhdai.com) template.
 
-Check out the live site: [lawaloyinlola.com](https://lawaloyinlola.com)
+Live: **[resume.lawaloyinlola.com](https://resume.lawaloyinlola.com)** · Main portfolio: **[lawaloyinlola.com](https://lawaloyinlola.com)**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/images/screenshot-dark.webp">
-  <source media="(prefers-color-scheme: light)" srcset="/images/screenshot.webp">
-  <img src="/images/screenshot-dark.webp" alt="Screenshot">
+  <source media="(prefers-color-scheme: dark)" srcset="public/images/screenshot-dark.webp">
+  <source media="(prefers-color-scheme: light)" srcset="public/images/screenshot.webp">
+  <img src="public/images/screenshot-dark.webp" alt="Screenshot of resume.lawaloyinlola.com">
 </picture>
 
 ## Overview
 
 ### Tech Stack
 
-- Next.js 15
+- Next.js 16 (App Router, Turbopack)
+- React 19 + TypeScript
 - Tailwind CSS v4
-- shadcn/ui
+- shadcn/ui + Radix UI + Motion
 
-### Featured
+### Features
 
-- Clean & modern design
-- Light & Dark theme support
-- vCard integration
-- SEO optimization: [JSON-LD schema](https://json-ld.org), sitemap, robots
-- AI-friendly [/llms.txt](https://llmstxt.org)
-- Spam-protected email
+- Clean, responsive, light & dark design
+- Frontend-first positioning with full-stack range
+- One-click **résumé download** (Frontend & Software Engineer CVs, with Google Drive mirrors)
+- vCard export
+- Rich SEO: [JSON-LD](https://json-ld.org) `ProfilePage` + `Person` schema (with `sameAs`, `worksFor`, `alumniOf`, `knowsAbout`), sitemap, robots
+- AI-discoverable: explicit AI-crawler allowances and [`/llms.txt`](https://llmstxt.org) + `/llms-full.txt`
+- Spam-protected email and phone
 - Installable PWA
-
-### Blog
-
-- MDX & Markdown support
-- Access markdown by adding `.mdx` to URLs, e.g. `/blog/welcome.mdx`
-- Syntax Highlighting for better readability
-- RSS Feed for easy content distribution
-- Dynamic OG Images for rich previews
-
-### Component Registry
-
-Easily build and distribute your own components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
-
-Each component is well-documented through the Blog, featuring:
-
-- **Live Preview**: Interactive component demos
-- **Code Snippets**: Readable and copyable examples
-- **Beautiful Code Blocks**: Styled for clarity and dark mode
-- **Command Blocks**: One-click copy for quick install commands (`pnpm`, `npm`, `yarn`, `bun`)
 
 ## Development
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
+Please refer to the [Development Guide](./DEVELOPMENT.md) for setup and scripts.
 
 ## License
 
-Licensed under the [MIT license](./LICENSE).
+Licensed under the [MIT license](./LICENSE). © Lawal Oyinlola.
 
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
+If you reuse this code, please remove all personal information (name, contact details, résumé PDFs, projects, and analytics) before publishing your own site.
 
 ## Acknowledgments
 
-**Special Thanks:**
-
-- [Nguyen Chanh Dai (@ncdai)](https://github.com/ncdai) for the original [chanhdai.com](https://chanhdai.com) design and inspiration
-- The open-source community for the amazing tools and libraries
-
-**Technologies Used:**
-
-- [React](https://react.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Motion](https://motion.dev)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Aceternity UI](https://ui.aceternity.com)
-- [Lucide](https://lucide.dev)
-- [Fumadocs](https://fumadocs.dev)
-- And many other open-source libraries used in `package.json`
+- Built on the open-source [chanhdai.com](https://chanhdai.com) portfolio template by [Nguyen Chanh Dai (@ncdai)](https://github.com/ncdai). Thank you for the original design and engineering.
+- The open-source community for the tools and libraries that power this site: [React](https://react.dev), [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), [Radix UI](https://www.radix-ui.com), [Motion](https://motion.dev), [shadcn/ui](https://ui.shadcn.com), [Lucide](https://lucide.dev), and others listed in `package.json`.

@@ -26,7 +26,8 @@ export type User = {
   jobs: {
     title: string;
     company: string;
-    website: string;
+    /** Optional company URL; company renders as plain text when omitted. */
+    website?: string;
   }[];
   /** Rich about section; supports Markdown */
   about: string;

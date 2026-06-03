@@ -1,13 +1,19 @@
 import "@/styles/globals.css";
 
+import dayjs from "dayjs";
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import type { WebSite, WithContext } from "schema-dts";
+import { cookies } from "next/headers";
+import type { ProfilePage, WebSite, WithContext } from "schema-dts";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
+import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { USER } from "@/features/profile/data/user";
 import { fontMono, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { decodeEmail } from "@/utils/string";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -15,24 +21,72 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     "@type": "WebSite",
     name: SITE_INFO.name,
     url: SITE_INFO.url,
-    alternateName: [USER.username],
+    description: SITE_INFO.description,
+    alternateName: [USER.username, `${USER.firstName} ${USER.lastName}`],
+    author: {
+      "@type": "Person",
+      name: USER.displayName,
+      url: USER.website,
+    },
   };
 }
 
-// Thanks @shadcn-ui, @tailwindcss
-const darkModeScript = String.raw`
-  try {
-    if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
-    }
-  } catch (_) {}
-
-  try {
-    if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
-      document.documentElement.classList.add('os-macos')
-    }
-  } catch (_) {}
-`;
+function getProfilePageJsonLd(): WithContext<ProfilePage> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    dateCreated: dayjs(USER.dateCreated).toISOString(),
+    dateModified: dayjs(USER.dateCreated).toISOString(),
+    mainEntity: {
+      "@type": "Person",
+      name: USER.displayName,
+      alternateName: `${USER.firstName} Ibrahim ${USER.lastName}`,
+      identifier: USER.username,
+      jobTitle: USER.jobTitle,
+      description: USER.bio,
+      url: USER.website,
+      image: `${SITE_INFO.url}${USER.avatar}`,
+      email: `mailto:${decodeEmail(USER.email)}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lagos",
+        addressCountry: "NG",
+      },
+      worksFor: USER.jobs.map((job) => ({
+        "@type": "Organization",
+        name: job.company,
+      })),
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "AltSchool Africa" },
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Federal University of Agriculture, Abeokuta",
+        },
+      ],
+      knowsAbout: [
+        "Frontend Engineering",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Web Accessibility",
+        "Web Performance",
+        "UI Engineering",
+        "Full-Stack Development",
+        "NestJS",
+        "Node.js",
+        "Prisma",
+        "WebSockets",
+        "Mapbox GL",
+        "Docker",
+        "CI/CD",
+        "LLM Integration",
+      ],
+      sameAs: [USER.website, ...SOCIAL_LINKS.map((link) => link.href)],
+    },
+  };
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
@@ -81,6 +135,10 @@ export const metadata: Metadata = {
         sizes: "any",
       },
       {
+        url: "/favicon/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
         url: "/favicon/favicon-32x32.png",
         type: "image/png",
       },
@@ -100,37 +158,61 @@ export const viewport: Viewport = {
   themeColor: META_THEME_COLORS.light,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Read the persisted theme from a cookie so the correct class is applied on
+  // the server. This avoids a flash of the wrong theme WITHOUT rendering an
+  // inline <script> (React 19 renders scripts on the server but skips them on
+  // the client, which shifts the tree and breaks hydration). Returning visitors
+  // get no flash; the ThemeProvider resolves "system" on first visit.
+  const isDark = (await cookies()).get("theme")?.value === "dark";
+
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      className={cn(
+        fontSans.variable,
+        fontMono.variable,
+        isDark ? "dark" : "light"
+      )}
+      style={{ colorScheme: isDark ? "dark" : "light" }}
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{ __html: darkModeScript }}
-        />
-        {/*
-          Thanks @tailwindcss. We inject the script via the `<Script/>` tag again,
-          since we found the regular `<script>` tag to not execute when rendering a not-found page.
-         */}
-        <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
+        {/* Preconnect to CDN origins for tech-stack icons so the browser
+            establishes connections before the icons are requested. */}
+        <link rel="preconnect" href="https://cdn.simpleicons.org" />
+        <link rel="preconnect" href="https://api.iconify.design" />
+        {/* JSON-LD lives in <head> on purpose: a <script> in the <body> is
+            hoisted to <head> on the client by React 19 but stays in the body on
+            the server, shifting the body by one node and breaking hydration. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getProfilePageJsonLd()).replace(
+              /</g,
+              "\\u003c"
+            ),
+          }}
+        />
       </head>
 
-      <body>
+      {/* suppressHydrationWarning: browser extensions (wallet providers,
+          Grammarly, etc.) mutate the DOM before React hydrates. */}
+      <body suppressHydrationWarning>
         <Providers>{children}</Providers>
+        {/* Only load on Vercel — avoids 404s when running locally */}
+        {process.env.VERCEL && <Analytics />}
+        {process.env.VERCEL && <SpeedInsights />}
       </body>
     </html>
   );

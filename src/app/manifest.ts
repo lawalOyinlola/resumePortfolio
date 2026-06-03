@@ -9,25 +9,30 @@ export default function manifest(): MetadataRoute.Manifest {
     description: SITE_INFO.description,
     icons: [
       {
-        src: "https://assets.chanhdai.com/images/icon-vector.svg",
-        type: "image/svg+xml",
-        sizes: "any",
+        src: "/favicon/favicon.ico",
+        type: "image/x-icon",
+        sizes: "48x48",
+      },
+      {
+        src: "/favicon/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
         purpose: "any",
       },
       {
-        src: "https://assets.chanhdai.com/images/icon-192x192.png",
+        src: "/favicon/android-chrome-192x192.png",
         type: "image/png",
         sizes: "192x192",
         purpose: "any",
       },
       {
-        src: "https://assets.chanhdai.com/images/icon-512x512.png",
+        src: "/favicon/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
         purpose: "any",
       },
       {
-        src: "https://assets.chanhdai.com/images/maskable-icon.png",
+        src: "/favicon/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
         purpose: "maskable",
@@ -39,27 +44,15 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: "/",
     screenshots: [
       {
-        src: "https://assets.chanhdai.com/images/screenshot-mobile-dark.webp",
+        src: "/images/screenshot.webp",
         type: "image/webp",
-        sizes: "440x956",
-        form_factor: "narrow",
-      },
-      {
-        src: "https://assets.chanhdai.com/images/screenshot-mobile-light.webp",
-        type: "image/webp",
-        sizes: "440x956",
-        form_factor: "narrow",
-      },
-      {
-        src: "https://assets.chanhdai.com/images/screenshot-desktop-dark.webp",
-        type: "image/webp",
-        sizes: "1920x1080",
+        sizes: "543x300",
         form_factor: "wide",
       },
       {
-        src: "https://assets.chanhdai.com/images/screenshot-desktop-light.webp",
+        src: "/images/screenshot-dark.webp",
         type: "image/webp",
-        sizes: "1920x1080",
+        sizes: "543x300",
         form_factor: "wide",
       },
     ],

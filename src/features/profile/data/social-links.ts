@@ -2,39 +2,27 @@ import type { SocialLink } from "../types/social-links";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/linkedin.webp",
+    icon: "/images/link-icons/linkedin.svg",
     title: "LinkedIn",
     description: "Lawal Oyinlola",
     href: "https://www.linkedin.com/in/lawaloyinlola/",
   },
   {
-    icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/github.webp",
+    icon: "/images/link-icons/github.svg",
     title: "GitHub",
-    description: "Lawal Oyinlola",
+    description: "@lawalOyinlola",
     href: "https://github.com/lawalOyinlola/",
   },
-  // {
-  //   icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/x.webp",
-  //   title: "X (Formerly Twitter)",
-  //   description: "@HoneyzRich",
-  //   href: "https://x.com/honeyzrich?s=21&t=C8AmSZA0skcAWJ-gYIUjFg",
-  // },
-  // {
-  //   icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/dailydotdev.webp",
-  //   title: "daily.dev",
-  //   description: "@ncdai",
-  //   href: "https://app.daily.dev/ncdai",
-  // },
-  // {
-  //   icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/zalo.webp",
-  //   title: "Zalo",
-  //   description: "Quaric",
-  //   href: "https://zalo.me/2353934240045322830",
-  // },
-  // {
-  //   icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/youtube.webp",
-  //   title: "YouTube",
-  //   description: "@ncdai",
-  //   href: "https://www.youtube.com/@ncdai",
-  // },
+  {
+    icon: "/images/link-icons/x.svg",
+    title: "X (Formerly Twitter)",
+    description: "@HoneyzRich",
+    href: "https://x.com/honeyzrich",
+  },
+  {
+    icon: "/images/link-icons/whatsapp.svg",
+    title: "WhatsApp",
+    description: "Chat with me",
+    href: "https://wa.me/2348163992628",
+  },
 ];

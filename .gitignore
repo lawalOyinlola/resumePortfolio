@@ -40,5 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ncdai
-.ncdai
+# local working docs (CV / LinkedIn / job-search notes — never publish)
+/CHAT_SUMMARY.md
+/linkedin_cv/
+

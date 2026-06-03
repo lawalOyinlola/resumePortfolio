@@ -29,7 +29,8 @@ export function ScrollTop({
       data-visible={visible}
       data-scroll-direction={scrollDirection}
       className={cn(
-        "[--bottom:1rem] lg:[--bottom:2rem]",
+        // Raised so the "Download Resume" FAB can sit below it (bottom-right).
+        "[--bottom:4.5rem] lg:[--bottom:5.5rem]",
         "fixed right-4 bottom-[calc(var(--bottom,1rem)+env(safe-area-inset-bottom,0px))] z-50 lg:right-8",
         "duration-300 data-[scroll-direction=down]:opacity-30 data-[scroll-direction=up]:opacity-100 data-[visible=false]:opacity-0",
         className
