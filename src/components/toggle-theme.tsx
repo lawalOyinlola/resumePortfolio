@@ -1,9 +1,9 @@
 "use client";
 
 import { MoonStarIcon, SunIcon } from "lucide-react";
-import { useTheme } from "next-themes";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
+import { useTheme } from "@/components/theme-provider";
 import { META_THEME_COLORS } from "@/config/site";
 import { useMetaColor } from "@/hooks/use-meta-color";
 import soundManager from "@/lib/sound-manager";

@@ -19,9 +19,7 @@ class SoundManager {
   }
 
   playClick() {
-    this.playAudio(
-      "https://assets.chanhdai.com/audio/ui-sounds/click.wav" // Source: iOS UI Sounds
-    );
+    this.playAudio("/audio/click.wav");
   }
 }
 
