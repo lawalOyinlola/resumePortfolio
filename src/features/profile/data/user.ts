@@ -7,49 +7,43 @@ export const USER: User = {
   username: "yero",
   gender: "male",
   pronouns: "he/him",
-  bio: "Improving User Experience, Accessibility and Performance",
+  bio: "Frontend Engineer building accessible, high-performance web products in React, Next.js, and TypeScript. Full-stack and infrastructure range when the product needs it.",
   flipSentences: [
-    "Improving User Experience, Accessibility and Performance",
-    "Frontend Developer",
-    "Application Developer",
-    "Website Developer",
-    "Creating with code. Small details matter.",
+    "Frontend Engineer · Full-Stack Capable",
+    "React, Next.js, TypeScript",
+    "Accessibility & Performance focused",
+    "I build products people depend on",
+    "From Figma to Prisma to NGINX",
   ],
-  address: "Freetown, Sierra Leone |X| Lagos, Nigeria",
-  phoneNumber: "KzIzMiAzMCAyNCA5MjA1", // in base64
-  email: "bGF3YWxveWlubG9sYUBnbWFpbC5jb20=", // base64 encoded
+  address: "Lagos, Nigeria | Freetown, Sierra Leone",
+  phoneNumber: "KzIzNDgxNjM5OTI2Mjg=", // +2348163992628 in base64
+  email: "b3lpbmxvbGFsYXdhbDE3MDVAZ21haWwuY29t", // oyinlolalawal1705@gmail.com in base64
   website: "https://lawaloyinlola.com",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Frontend Engineer",
   jobs: [
     {
-      title: "IT Lead & Frontend Engineer",
+      title: "Frontend Engineer & Team Lead",
       company: "Tech N' Goodwill Limited",
-      website: "https://techengoodwill.com",
     },
     {
-      title: "Lead Software Developer & Frontend Engineer",
+      title: "Software/Frontend Developer",
       company: "SafulPay",
       website: "https://safulpay.com",
     },
-    // {
-    //   title: "Founder",
-    //   company: "Quaric",
-    //   website: "https://quaric.com",
-    // },
   ],
   about: `
 
-Hello, World! I am Lawal Oyinlola, a Frontend Developer passionate about transforming visions and ideas into meaningful and useful products. I create high-performance, user-centric software solutions with intuitive and engaging designs.
+Hi, I'm Lawal Oyinlola, a Frontend Engineer who builds high-performance, accessible web products for FinTech, GPS/IoT, and AI platforms. I work mainly in React, Next.js, and TypeScript, turning complex Figma designs into pixel-perfect, WCAG-compliant interfaces.
 
-With over 3 years of experience, I specialize in developing high-quality web and mobile applications using Next.js, React, TypeScript, and other modern front-end technologies. I also have experience building with low-code and no-code tools like Builder.io and FlutterFlow.
+Over the past 3+ years I've led small cross-functional teams and shipped real products. I owned the frontend for Trakkam, a multi-tenant GPS fleet-management SaaS, and took it full-stack on a $5/month VPS that runs roughly 8× cheaper than the managed equivalent. I re-platformed the SafulPay website to Next.js and raised its Lighthouse scores from 68 to a perfect 100 across Performance, Accessibility, Best Practices, and SEO. Standardizing our Git and PR workflow cut code-review turnaround by 30%.
 
-Beyond coding, I love tackling brain-teasing challenges and constantly exploring new tools and skills. In my free time, you'll find me enjoying comedy, playing competitive or simulation games, or bringing ideas to life through personal projects.
+I'm frontend-first, but when a product needs it I extend into backend, real-time, and self-hosted infrastructure (NestJS, Prisma, WebSockets, NGINX, Docker) to ship end to end. When I'm not building, you'll find me on brain-teasers, competitive games, or bringing a side project to life.
 
-Let's connect and create something amazing together!
+Let's build something people can depend on.
 
   `,
-  avatar: "/images/lawal_oyinlola-profile_picture.png",
-  ogImage: "/images/ogImage_screenshot.png",
+  avatar: "/images/lawal_oyinlola-profile_picture.webp",
+  ogImage: "/images/og-image.png",
   namePronunciationUrl: "/audio/lawal_oyinlola_pronounciation.mp3",
   keywords: [
     "lawal",
@@ -80,6 +74,34 @@ Let's connect and create something amazing together!
     "frontend engineer in west africa",
     "frontend developer in africa",
     "frontend engineer in africa",
+    "full-stack engineer",
+    "full-stack developer",
+    "software engineer",
+    "react developer",
+    "next.js developer",
+    "typescript developer",
+    "nestjs",
+    "prisma",
+    "mariadb",
+    "websockets",
+    "socket.io",
+    "mapbox",
+    "gps fleet management saas",
+    "trakkam",
+    "fintech frontend engineer",
+    "ai integration",
+    "llm integration",
+    "claude api",
+    "gemini api",
+    "openai api",
+    "docker",
+    "nginx",
+    "ci/cd",
+    "github actions",
+    "web performance",
+    "web accessibility",
+    "wcag",
+    "lighthouse 100",
   ],
   dateCreated: "2025-09-10", // YYYY-MM-DD
 };

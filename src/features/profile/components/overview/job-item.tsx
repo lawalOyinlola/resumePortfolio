@@ -28,7 +28,7 @@ export function JobItem({
 }: {
   title: string;
   company: string;
-  website: string;
+  website?: string;
 }) {
   return (
     <IntroItem
@@ -36,14 +36,18 @@ export function JobItem({
       content={
         <>
           {title} @
-          <a
-            className="ml-0.5 font-medium underline-offset-4 hover:underline"
-            href={addQueryParams(website, UTM_PARAMS)}
-            target="_blank"
-            rel="noopener"
-          >
-            {company}
-          </a>
+          {website ? (
+            <a
+              className="ml-0.5 font-medium underline-offset-4 hover:underline"
+              href={addQueryParams(website, UTM_PARAMS)}
+              target="_blank"
+              rel="noopener"
+            >
+              {company}
+            </a>
+          ) : (
+            <span className="ml-0.5 font-medium">{company}</span>
+          )}
         </>
       }
     />
