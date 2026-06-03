@@ -1,9 +1,10 @@
 import { USER } from "@/features/profile/data/user";
-import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://lawaloyinlola.com",
+  // This résumé site is served at resume.lawaloyinlola.com.
+  // The main portfolio lives at lawaloyinlola.com (see USER.website).
+  url: process.env.APP_URL || "https://resume.lawaloyinlola.com",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -14,27 +15,25 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 };
 
-export const MAIN_NAV: NavItem[] = [
+// Résumé downloads — Google Drive direct download links.
+// Direct download format: https://drive.google.com/uc?export=download&id=<file_id>
+export const RESUME_DOWNLOADS = [
   {
-    title: "Home",
-    href: "/",
+    label: "Frontend Engineer",
+    href: "https://drive.google.com/uc?export=download&id=1f0ewtAFyDsY5c9XU_w0jsIJmuIej377K",
   },
-  // {
-  //   title: "Blog",
-  //   href: "/blog",
-  // },
-  // {
-  //   title: "Components",
-  //   href: "/components",
-  // },
+  {
+    label: "Software Engineer",
+    href: "https://drive.google.com/uc?export=download&id=1qsatPy8qnwe8IlRFqqDz2qR_Ll9_tsbp",
+  },
 ];
 
-export const SOURCE_CODE_GITHUB_REPO = "lawalOyinlola/myPortfolio";
+export const SOURCE_CODE_GITHUB_REPO = "lawalOyinlola/resumePortfolio";
 export const SOURCE_CODE_GITHUB_URL =
-  "https://github.com/lawalOyinlola/myPortfolio";
+  "https://github.com/lawalOyinlola/resumePortfolio";
 
 export const UTM_PARAMS = {
-  utm_source: "lawaloyinlola.com",
+  utm_source: "resume.lawaloyinlola.com",
   utm_medium: "portfolio_website",
   utm_campaign: "referral",
 };
