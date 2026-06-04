@@ -9,30 +9,24 @@ export default function manifest(): MetadataRoute.Manifest {
     description: SITE_INFO.description,
     icons: [
       {
-        src: "/favicon/favicon.ico",
+        src: "/icons/favicon.ico",
         type: "image/x-icon",
         sizes: "48x48",
       },
       {
-        src: "/favicon/favicon-32x32.png",
+        src: "/icons/favicon-32.png",
         type: "image/png",
         sizes: "32x32",
         purpose: "any",
       },
       {
-        src: "/favicon/android-chrome-192x192.png",
-        type: "image/png",
-        sizes: "192x192",
-        purpose: "any",
-      },
-      {
-        src: "/favicon/android-chrome-512x512.png",
+        src: "/icons/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
         purpose: "any",
       },
       {
-        src: "/favicon/android-chrome-512x512.png",
+        src: "/icons/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
         purpose: "maskable",

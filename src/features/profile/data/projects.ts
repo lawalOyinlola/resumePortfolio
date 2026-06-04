@@ -46,6 +46,23 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     isExpanded: true,
   },
   {
+    id: "a-certain-woman",
+    title: "A Certain Woman — Women's Movement Website",
+    period: { start: "05.2026" },
+    link: "https://acertainwoman.org/",
+    image: "/images/projects/acw_impact.png",
+    skills: [
+      "Next.js",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "shadcn/ui",
+    ],
+    description:
+      "Website for a faith-rooted women's movement based in Freetown, Sierra Leone — supporting healing circles, leadership academies, and community programs. Built with Next.js 16 App Router and Tailwind CSS v4 under the tagline 'Restoring Hearts. Reclaiming Crowns.'",
+    isExpanded: true,
+  },
+  {
     id: "lia",
     title: "LIA — LinkedIn Intelligent Assistant",
     period: { start: "03.2025" },

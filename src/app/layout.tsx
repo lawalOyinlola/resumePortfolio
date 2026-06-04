@@ -138,32 +138,32 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      // Light (default)
+      { url: "/icons/favicon.ico", sizes: "any" },
+      { url: "/icons/lawal-logo.svg", type: "image/svg+xml" },
+      { url: "/icons/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icons/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      // Dark overrides
       {
-        url: "/favicon/favicon.ico",
+        url: "/icons/dark/favicon.ico",
         sizes: "any",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/favicon/favicon.svg",
-        type: "image/svg+xml",
-      },
-      {
-        url: "/favicon/favicon-96x96.png",
-        type: "image/png",
-        sizes: "96x96",
-      },
-      {
-        url: "/favicon/favicon-32x32.png",
+        url: "/icons/dark/favicon-32.png",
         type: "image/png",
         sizes: "32x32",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/favicon/favicon-16x16.png",
+        url: "/icons/dark/favicon-16x16.png",
         type: "image/png",
         sizes: "16x16",
+        media: "(prefers-color-scheme: dark)",
       },
     ],
     apple: {
-      url: "/favicon/apple-touch-icon.png",
+      url: "/icons/apple-touch-icon.png",
       type: "image/png",
       sizes: "180x180",
     },
