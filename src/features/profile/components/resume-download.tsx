@@ -18,9 +18,13 @@ async function downloadResume(
   fallbackHref: string,
   filename: string
 ) {
+  // Open the fallback window synchronously during the user gesture so browsers
+  // don't treat the later window.open call as a popup (which gets blocked).
+  const fallbackWindow = window.open("", "_blank", "noopener,noreferrer");
+
   try {
     const res = await fetch(href);
-    if (!res.ok) throw new Error(`Résumé not found: ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
@@ -31,9 +35,20 @@ async function downloadResume(
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
-  } catch {
-    // Fall back to the Google Drive copy if the local PDF can't be fetched.
-    window.open(fallbackHref, "_blank", "noopener,noreferrer");
+
+    // Download succeeded — close the pre-opened fallback window.
+    fallbackWindow?.close();
+  } catch (err) {
+    console.warn(
+      `[resume-download] Local fetch failed for "${href}" — falling back to Google Drive.`,
+      err
+    );
+    if (fallbackWindow) {
+      fallbackWindow.location.href = fallbackHref;
+    } else {
+      // Popup was blocked; last-resort direct navigation.
+      window.open(fallbackHref, "_blank", "noopener,noreferrer");
+    }
   }
 }
 
