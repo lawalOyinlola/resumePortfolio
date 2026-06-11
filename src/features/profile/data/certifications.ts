@@ -2,6 +2,15 @@ import type { Certification } from "../types/certifications";
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    title: "The Complete JavaScript Course 2025: From Zero to Expert!",
+    issuer: "Jonas Schmedtmann",
+    issuerIconName: "udemy",
+    issueDate: "2026-06-10",
+    credentialID: "UC-c272f647-09ce-4317-8091-4dd141679953",
+    credentialURL:
+      "https://drive.google.com/file/d/1bOwtn8-Esh1x_KH2v1Peqs19iwTP0lI1/view?usp=drive_link",
+  },
+  {
     title: "HNG Internship 12 (2025) — Frontend Development Track Finalist",
     issuer: "HNG Internship",
     issuerIconName: "hng",
