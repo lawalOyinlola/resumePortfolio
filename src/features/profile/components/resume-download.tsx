@@ -13,6 +13,30 @@ import {
 import { RESUME_DOWNLOADS } from "@/config/site";
 import { cn } from "@/lib/utils";
 
+async function downloadResume(
+  href: string,
+  fallbackHref: string,
+  filename: string
+) {
+  try {
+    const res = await fetch(href);
+    if (!res.ok) throw new Error(`Résumé not found: ${res.status}`);
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch {
+    // Fall back to the Google Drive copy if the local PDF can't be fetched.
+    window.open(fallbackHref, "_blank", "noopener,noreferrer");
+  }
+}
+
 export function ResumeDownload() {
   return (
     <DropdownMenu>
@@ -40,11 +64,15 @@ export function ResumeDownload() {
           Choose version
         </DropdownMenuLabel>
         {RESUME_DOWNLOADS.map((resume) => (
-          <DropdownMenuItem key={resume.href} asChild>
-            <a href={resume.href} download className="cursor-pointer">
-              <FileTextIcon className="size-4" />
-              {resume.label}
-            </a>
+          <DropdownMenuItem
+            key={resume.href}
+            className="cursor-pointer"
+            onSelect={() =>
+              downloadResume(resume.href, resume.fallbackHref, resume.filename)
+            }
+          >
+            <FileTextIcon className="size-4" />
+            {resume.label}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
