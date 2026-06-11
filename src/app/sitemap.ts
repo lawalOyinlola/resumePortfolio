@@ -6,7 +6,7 @@ import { SITE_INFO } from "@/config/site";
 // `new Date()`) so the sitemap doesn't report a fresh lastModified on every
 // rebuild/deploy, which search engines treat as noise. File mtimes aren't
 // reliable here because CI checkouts reset them.
-const LAST_UPDATED = new Date("2026-06-03T00:00:00.000Z");
+const LAST_UPDATED = new Date("2026-06-11T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

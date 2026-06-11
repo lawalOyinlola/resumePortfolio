@@ -2,15 +2,53 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "safulpay",
+    companyName: "SafulPay",
+    companyLogo: "/images/safulpay-icon-green.webp",
+    positions: [
+      {
+        id: "software-frontend-dev-2024",
+        title: "Software/Frontend Developer",
+        employmentPeriod: {
+          start: "02.2024",
+        },
+        employmentType: "Full-time",
+        icon: "code",
+        description: `*Incubated as an internal product at Tech'N Goodwill, then spun off as an independent fintech company in 2025.*
+
+- Re-platformed the SafulPay corporate website to Next.js, raising Lighthouse scores from 68 to a perfect 100 across Performance, Accessibility, Best Practices, and SEO, while also shipping more sections and content, through code-splitting, lazy loading, image optimization, and accessibility hardening.
+- Converted complex Figma designs into pixel-perfect, WCAG-accessible components for customer portals and agency monitoring dashboards.
+- Engineered the SafulPay v2 frontend architecture with Golang backend engineers on API consumption and complex state management, after co-developing the v1 stack that paired a FlutterFlow frontend with a PHP backend.
+- Built the SafulPay Agent & Merchant Onboarding web app used by field marketers, with analytics dashboards, activity monitoring, and a performance leaderboard for tracking marketer productivity.`,
+        skills: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "FlutterFlow",
+          "Figma",
+          "Performance Optimization",
+          "Accessibility",
+          "SEO",
+          "State Management",
+          "REST APIs",
+          "FinTech",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
     id: "tech-n-goodwill",
-    companyName: "Tech N' Goodwill Limited",
+    companyName: "Tech'N Goodwill Limited",
     companyLogo: "/images/techngoodwill-logo.webp",
     positions: [
       {
-        id: "frontend-lead-2023",
-        title: "Frontend Engineer & Team Lead",
+        id: "software-lead-2023",
+        title: "Software Developer & Team Lead",
         employmentPeriod: {
-          start: "08.2023",
+          start: "05.2023",
         },
         employmentType: "Full-time",
         icon: "code",
@@ -39,44 +77,6 @@ export const EXPERIENCES: Experience[] = [
           "FinTech",
           "Team Leadership",
           "Cross-functional Collaboration",
-        ],
-        isExpanded: true,
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-  {
-    id: "safulpay",
-    companyName: "SafulPay",
-    companyLogo: "/images/safulpay-icon-green.webp",
-    positions: [
-      {
-        id: "software-frontend-dev-2024",
-        title: "Software/Frontend Developer",
-        employmentPeriod: {
-          start: "02.2024",
-        },
-        employmentType: "Full-time",
-        icon: "code",
-        description: `*Incubated as an internal product at Tech N' Goodwill, then spun off as an independent fintech company in 2025.*
-
-- Re-platformed the SafulPay corporate website to Next.js, raising Lighthouse scores from 68 to a perfect 100 across Performance, Accessibility, Best Practices, and SEO, while also shipping more sections and content, through code-splitting, lazy loading, image optimization, and accessibility hardening.
-- Converted complex Figma designs into pixel-perfect, WCAG-accessible components for customer portals and agency monitoring dashboards.
-- Engineered the SafulPay v2 frontend architecture with Golang backend engineers on API consumption and complex state management, after co-developing the v1 stack that paired a FlutterFlow frontend with a PHP backend.
-- Built the SafulPay Agent & Merchant Onboarding web app used by field marketers, with analytics dashboards, activity monitoring, and a performance leaderboard for tracking marketer productivity.`,
-        skills: [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "FlutterFlow",
-          "Figma",
-          "Performance Optimization",
-          "Accessibility",
-          "SEO",
-          "State Management",
-          "REST APIs",
-          "FinTech",
         ],
         isExpanded: true,
       },
@@ -123,47 +123,15 @@ export const EXPERIENCES: Experience[] = [
     ],
   },
   {
-    id: "altschool-africa",
-    companyName: "AltSchool Africa",
-    companyLogo: "/images/altschool-logo.webp",
-    positions: [
-      {
-        id: "interim-dev-2023",
-        title: "Interim Developer",
-        employmentPeriod: {
-          start: "03.2023",
-          end: "03.2024",
-        },
-        employmentType: "Internship",
-        icon: "education",
-        description: `- Graduated the Frontend Engineering diploma with a 96/100 grade.
-- Intensive, education-driven internship focused on frontend engineering fundamentals, modern tooling, and soft skills.
-- Built production projects including "ScissorsWeb" and "Task Pilot", consuming RESTful APIs.
-- Practiced Git/GitHub workflows and wrote unit tests to ensure code quality and functionality.`,
-        skills: [
-          "Frontend Engineering",
-          "RESTful APIs",
-          "Git",
-          "GitHub",
-          "Unit Testing",
-          "Code Quality",
-          "Project Development",
-          "Self-learning",
-          "Soft Skills",
-        ],
-      },
-    ],
-  },
-  {
     id: "nimble-capital",
     companyName: "Nimble Capital Limited",
     positions: [
       {
-        id: "it-specialist-2019",
+        id: "it-specialist-2021",
         title: "IT Specialist",
         employmentPeriod: {
-          start: "02.2019",
-          end: "12.2021",
+          start: "02.2021",
+          end: "12.2022",
         },
         employmentType: "Full-time",
         icon: "business",

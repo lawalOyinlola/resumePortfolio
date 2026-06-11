@@ -15,16 +15,23 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 };
 
-// Résumé downloads — Google Drive direct download links.
-// Direct download format: https://drive.google.com/uc?export=download&id=<file_id>
+// Résumé downloads — local PDFs (same-origin, so the download is reliable and
+// keeps a clean filename), with the Google Drive copy as a fallback if the
+// local file can't be fetched.
 export const RESUME_DOWNLOADS = [
   {
     label: "Frontend Engineer",
-    href: "https://drive.google.com/uc?export=download&id=1f0ewtAFyDsY5c9XU_w0jsIJmuIej377K",
+    filename: "Oyinlola-Lawal-Frontend-Engineer.pdf",
+    href: "/resume/Oyinlola-Lawal-Frontend-Engineer.pdf",
+    fallbackHref:
+      "https://drive.google.com/file/d/1ec5e1Z2HZFdKRLzudOXL9CltcCnKAl9l/view?usp=sharing",
   },
   {
     label: "Software Engineer",
-    href: "https://drive.google.com/uc?export=download&id=1qsatPy8qnwe8IlRFqqDz2qR_Ll9_tsbp",
+    filename: "Oyinlola-Lawal-Software-Engineer.pdf",
+    href: "/resume/Oyinlola-Lawal-Software-Engineer.pdf",
+    fallbackHref:
+      "https://drive.google.com/file/d/1sr6rTlNtIkjbuSgDN7Zte59Uv6Uof-ws/view?usp=sharing",
   },
 ];
 

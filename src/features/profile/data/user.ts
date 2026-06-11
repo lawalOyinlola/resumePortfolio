@@ -23,13 +23,13 @@ export const USER: User = {
   jobTitle: "Frontend Engineer",
   jobs: [
     {
-      title: "Frontend Engineer & Team Lead",
-      company: "Tech N' Goodwill Limited",
-    },
-    {
       title: "Software/Frontend Developer",
       company: "SafulPay",
       website: "https://safulpay.com",
+    },
+    {
+      title: "Software Developer & Team Lead",
+      company: "Tech'N Goodwill Limited",
     },
   ],
   about: `
