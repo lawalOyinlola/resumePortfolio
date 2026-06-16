@@ -19,7 +19,7 @@ export function FlipSentences({
   const startAnimation = () => {
     intervalRef.current = setInterval(() => {
       setCurrentSentence((prev) => (prev + 1) % sentences.length);
-    }, 2500);
+    }, 4000);
   };
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export function FlipSentences({
           className
         )}
         initial={{
-          y: 8,
+          y: 12,
           opacity: 0,
         }}
         animate={{
@@ -68,12 +68,12 @@ export function FlipSentences({
           opacity: 1,
         }}
         exit={{
-          y: -8,
+          y: -12,
           opacity: 0,
         }}
         transition={{
-          duration: 0.3,
-          ease: "linear",
+          duration: 0.5,
+          ease: [0.25, 0.46, 0.45, 0.94],
         }}
       >
         {sentences[currentSentence]}
