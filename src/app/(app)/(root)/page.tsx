@@ -1,30 +1,27 @@
-import { About } from "@/features/profile/components/about";
 import { Awards } from "@/features/profile/components/awards";
 import { Brand } from "@/features/profile/components/brand";
 import { Certifications } from "@/features/profile/components/certifications";
 import { Experiences } from "@/features/profile/components/experiences";
+import { Hello } from "@/features/profile/components/hello";
 import { Overview } from "@/features/profile/components/overview";
-import { ProfileCover } from "@/features/profile/components/profile-cover";
 import { ProfileHeader } from "@/features/profile/components/profile-header";
 import { Projects } from "@/features/profile/components/projects";
 import { SocialLinks } from "@/features/profile/components/social-links";
 import { TechStack } from "@/features/profile/components/tech-stack";
+import { Testimonials } from "@/features/profile/components/testimonials";
 import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
     <div className="mx-auto md:max-w-3xl">
-      <ProfileCover />
       <ProfileHeader />
       <Separator />
 
       <Overview />
-      <Separator />
-
       <SocialLinks />
       <Separator />
 
-      <About />
+      <Hello />
       <Separator />
 
       <TechStack />
@@ -40,6 +37,9 @@ export default function Page() {
       <Separator />
 
       <Certifications />
+      <Separator />
+
+      <Testimonials />
       <Separator />
 
       <Brand />
