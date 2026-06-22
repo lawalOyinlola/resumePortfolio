@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BrandContextMenu } from "@/components/brand-context-menu";
+import { CommandMenu } from "@/components/command-menu";
 import { NavItemGitHub } from "@/components/nav-item-github";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +32,7 @@ export function SiteHeader() {
         <div className="flex-1" />
 
         <div className="flex items-center gap-2">
+          <CommandMenu />
           <NavItemGitHub />
           <ToggleTheme />
         </div>
