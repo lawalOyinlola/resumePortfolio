@@ -35,6 +35,8 @@ export const RESUME_DOWNLOADS = [
   },
 ];
 
+export const GITHUB_USERNAME = "lawalOyinlola";
+
 export const SOURCE_CODE_GITHUB_REPO = "lawalOyinlola/resumePortfolio";
 export const SOURCE_CODE_GITHUB_URL =
   "https://github.com/lawalOyinlola/resumePortfolio";
