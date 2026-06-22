@@ -25,13 +25,16 @@ export function JobItem({
   title,
   company,
   website,
+  className,
 }: {
   title: string;
   company: string;
   website?: string;
+  className?: string;
 }) {
   return (
     <IntroItem
+      className={className}
       icon={getJobIcon(title)}
       content={
         <>

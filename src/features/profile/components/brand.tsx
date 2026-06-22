@@ -3,12 +3,16 @@ import { OyinnMark } from "@/components/oyinn-mark";
 import { cn } from "@/lib/utils";
 
 import { Panel, PanelHeader, PanelTitle } from "./panel";
+import { PanelTitleCopy } from "./panel-title-copy";
 
 export function Brand() {
   return (
-    <Panel>
+    <Panel id="brand">
       <PanelHeader>
-        <PanelTitle>Brand</PanelTitle>
+        <PanelTitle>
+          <a href="#brand">Brand</a>
+          <PanelTitleCopy id="brand" />
+        </PanelTitle>
       </PanelHeader>
 
       <BrandContextMenu>

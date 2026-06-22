@@ -2,20 +2,24 @@ import { Markdown } from "@/components/markdown";
 import { Prose } from "@/components/ui/typography";
 import { USER } from "@/features/profile/data/user";
 
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
+import { GitHubContributions } from "../github-contributions";
+import { Panel, PanelContent, PanelHeader } from "../panel";
+import { HelloTitle } from "./hello-title";
 
-export function About() {
+export function Hello() {
   return (
     <Panel id="about">
       <PanelHeader>
-        <PanelTitle>About</PanelTitle>
+        <HelloTitle />
       </PanelHeader>
 
-      <PanelContent>
+      <PanelContent className="screen-line-after">
         <Prose>
           <Markdown>{USER.about}</Markdown>
         </Prose>
       </PanelContent>
+
+      <GitHubContributions />
     </Panel>
   );
 }
