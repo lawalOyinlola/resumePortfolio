@@ -1,3 +1,16 @@
+/**
+ * Four lighting states for the interactive header avatar. Each is a square
+ * image of the SAME crop/scale so they cross-fade as a lighting change.
+ * - `*Off` / `*On`: lights off / on
+ * - `light*` / `dark*`: shown in light / dark theme
+ */
+export type AvatarLightsVariants = {
+  lightOff: string;
+  lightOn: string;
+  darkOff: string;
+  darkOn: string;
+};
+
 export type User = {
   firstName: string;
   lastName: string;
@@ -34,6 +47,13 @@ export type User = {
   about: string;
   /** Public URL to avatar image */
   avatar: string;
+  /**
+   * Optional 4-variant interactive avatar (lights on/off in light & dark).
+   * When omitted, the header falls back to the single `avatar` image.
+   */
+  avatarVariants?: AvatarLightsVariants;
+  /** IANA time zone for the live local-time item (e.g. "Africa/Lagos") */
+  timeZone: string;
   /** Open Graph image URL for social sharing */
   ogImage: string;
   /** Audio URL for name pronunciation */
