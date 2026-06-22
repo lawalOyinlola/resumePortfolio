@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Portfolio">
+  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" fill="#18181b" stroke="rgba(255,255,255,0.16)"/>
+  <g transform="translate(8 16) scale(0.125)" fill="#ffffff">
+    <path d="M0 0h32v96h-32Z M32 96h64v32h-64Z M128 0h128v32h-128Z M160 96h96v32h-96Z M128 32h32v64h-32Z M224 32h32v64h-32Z"/>
+  </g>
+</svg>

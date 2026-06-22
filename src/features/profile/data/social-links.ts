@@ -2,6 +2,12 @@ import type { SocialLink } from "../types/social-links";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
+    icon: "/images/link-icons/portfolio.svg",
+    title: "Portfolio",
+    description: "lawaloyinlola.com",
+    href: "https://lawaloyinlola.com",
+  },
+  {
     icon: "/images/link-icons/linkedin.svg",
     title: "LinkedIn",
     description: "Lawal Oyinlola",
