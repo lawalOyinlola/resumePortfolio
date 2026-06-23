@@ -17,6 +17,7 @@ import {
   SunMediumIcon,
   UserIcon,
 } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -369,10 +370,11 @@ export function CommandMenu() {
                     onSelect={link.run}
                   >
                     {link.iconImage ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={link.iconImage}
                         alt=""
+                        width={16}
+                        height={16}
                         className="size-4 rounded-sm"
                         aria-hidden
                       />
