@@ -2,10 +2,11 @@ import dayjs from "dayjs";
 import {
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
-  FileCheckIcon,
+  CrownIcon,
+  PaperclipIcon,
 } from "lucide-react";
+import Image from "next/image";
 
-import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
 import {
   Collapsible,
@@ -25,17 +26,31 @@ export function AwardItem({
   className?: string;
   award: Award;
 }) {
-  const canExpand = !!award.description;
+  const hasHighlights =
+    Array.isArray(award.highlights) && award.highlights.length > 0;
+  const canExpand = !!award.description || hasHighlights;
 
   return (
     <Collapsible disabled={!canExpand} asChild>
       <div className={className}>
-        <div className="flex items-center">
+        <div className="group/award-row flex items-center transition-colors hover:bg-accent/50">
           <div
-            className="mx-4 flex size-6 shrink-0 items-center justify-center text-muted-foreground"
+            className="mx-4 flex size-6 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background"
             aria-hidden
           >
-            <Icons.award className="size-5" />
+            {award.logoURL ? (
+              <Image
+                src={award.logoURL}
+                alt=""
+                width={24}
+                height={24}
+                quality={100}
+                className="size-full object-contain grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/award-row:grayscale-0"
+                unoptimized
+              />
+            ) : (
+              <CrownIcon className="size-4" />
+            )}
           </div>
 
           <div className="flex-1 border-l border-dashed border-edge">
@@ -85,7 +100,7 @@ export function AwardItem({
                     target="_blank"
                     rel="noopener"
                   >
-                    <FileCheckIcon
+                    <PaperclipIcon
                       className="pointer-events-none size-4"
                       aria-hidden
                     />
@@ -109,8 +124,13 @@ export function AwardItem({
 
         {canExpand && (
           <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-            <Prose className="border-t border-dashed border-edge p-4">
-              <Markdown>{award.description}</Markdown>
+            <Prose className="space-y-2 border-t border-dashed border-edge p-4">
+              {award.description && <Markdown>{award.description}</Markdown>}
+              {hasHighlights && (
+                <Markdown>
+                  {award.highlights!.map((h) => `- ${h}`).join("\n")}
+                </Markdown>
+              )}
             </Prose>
           </CollapsibleContent>
         )}
