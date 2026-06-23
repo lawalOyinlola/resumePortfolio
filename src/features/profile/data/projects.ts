@@ -6,6 +6,7 @@ export const PROJECTS: Project[] = [
     title: "Trakkam — Multi-Tenant GPS Fleet-Management SaaS",
     period: { start: "01.2025" },
     link: "https://trakkam.com/",
+    logo: "https://trakkam.com/favicon.ico?favicon.65c14c5d.ico",
     image: "/images/projects/trakkam.png",
     skills: [
       "Next.js",
@@ -29,6 +30,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "MarketGist — Real-Time Stock Market Dashboard",
     period: { start: "09.2025" },
     link: "https://marketgist.vercel.app/",
+    logo: "https://marketgist.vercel.app/favicon.ico?favicon.1aeb95f0.ico",
     image: "/images/projects/marketgist.png",
     skills: [
       "Next.js",
@@ -50,6 +52,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "A Certain Woman — Women's Movement Website",
     period: { start: "05.2026" },
     link: "https://acertainwoman.org/",
+    logo: "/images/acw_logo.png",
     image: "/images/projects/acw_impact.png",
     skills: [
       "Next.js",
@@ -85,6 +88,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "SafulPay (FinTech App)",
     period: { start: "08.2023" },
     link: "https://safulpay.com/download",
+    logo: "/images/safulpay-icon-green.webp",
     image: "/images/projects/Screenshot-safulpay-app.png",
     skills: [
       "FinTech",
@@ -105,6 +109,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "SafulPay Website",
     period: { start: "11.2024" },
     link: "https://safulpay.com/",
+    logo: "/images/safulpay-icon-green.webp",
     image: "/images/projects/safulpay_hero.png",
     skills: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
     description:
@@ -115,6 +120,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "Khariar — AI-Powered ATS & Career Platform",
     period: { start: "10.2025" },
     link: "https://khariar.vercel.app/",
+    logo: "https://khariar.vercel.app/favicon.png",
     image: "/images/projects/khariar_home.png",
     skills: ["Next.js", "TypeScript", "Gemini API", "AI", "ATS", "Career"],
     description:
@@ -126,6 +132,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "Zentry Clone — Awwwards-Inspired Creative Site",
     period: { start: "11.2024" },
     link: "https://zentryclone-awwwards.vercel.app/",
+    logo: "https://zentryclone-awwwards.vercel.app/favicon/favicon.ico",
     image: "/images/projects/zentry_projects.png",
     skills: ["React", "GSAP", "Tailwind CSS", "TypeScript", "Creative Dev"],
     description:
@@ -136,6 +143,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "Resolve — Online Voting",
     period: { start: "01.2025" },
     link: "https://resolve.vote/",
+    logo: "https://resolve.vote/favicon.ico",
     image: "/images/projects/resolve_hero.png",
     skills: [
       "Next.js",
@@ -153,6 +161,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "Task Pilot — Vue 3 Task Manager",
     period: { start: "08.2023", end: "10.2023" },
     link: "https://taskpilot-lawal.vercel.app/",
+    logo: "https://taskpilot-lawal.vercel.app/favicon.svg",
     image: "/images/projects/taskpilot_hero.png",
     skills: ["Vue 3", "Reka UI", "TypeScript", "LZ-compression"],
     description:
@@ -163,6 +172,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "ScissorsWeb — URL Shortener, Analytics & QR Code",
     period: { start: "1.2024" },
     link: "https://scissorsweb.netlify.app/",
+    logo: "https://scissorsweb.netlify.app/favicon-32x32.png",
     image: "/images/projects/scissors_analytics.png",
     skills: ["React", "TypeScript", "Supabase", "GSAP", "Analytics"],
     description:
@@ -173,6 +183,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "Lumina Dice",
     period: { start: "06.2024" },
     link: "https://lumina-dice.vercel.app/",
+    logo: "/images/projects/lumina-icon.svg",
     image: "/images/projects/lumina_winner.png",
     skills: ["React", "TypeScript", "Animation", "Game"],
     description:
@@ -183,6 +194,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "SafulPay — Agency Banking Performance Portal",
     period: { start: "02.2025" },
     link: "https://agency.safulpay.com/",
+    logo: "/images/safulpay-icon-green.webp",
     image: "/images/projects/Screenshot-safulpay-agency.png",
     skills: ["React", "TypeScript", "Analytics", "Admin UI"],
     description:
@@ -193,6 +205,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
     title: "SafulPay — Merchant Web App",
     period: { start: "02.2025" },
     link: "https://app.safulpay.com/merchant",
+    logo: "/images/safulpay-icon-green.webp",
     image: "/images/projects/Screenshot-safulpay-merchant.png",
     skills: ["Laravel", "REST API", "Bulk Payments", "Collections"],
     description:
