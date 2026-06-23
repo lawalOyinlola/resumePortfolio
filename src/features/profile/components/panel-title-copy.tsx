@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckIcon, CircleXIcon, LinkIcon } from "lucide-react";
-import { useOptimistic, useTransition } from "react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -27,8 +27,7 @@ export function PanelTitleCopy({
   id: string;
   className?: string;
 }) {
-  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle");
-  const [, startTransition] = useTransition();
+  const [state, setState] = useState<"idle" | "copied" | "failed">("idle");
 
   return (
     <button
@@ -38,16 +37,14 @@ export function PanelTitleCopy({
         "ml-1 inline-flex size-7 shrink-0 translate-y-px items-center justify-center rounded-md align-middle text-muted-foreground opacity-0 transition-opacity group-hover/panel-title:opacity-100 hover:bg-muted focus-visible:opacity-100",
         className
       )}
-      onClick={() => {
-        startTransition(async () => {
-          try {
-            await navigator.clipboard.writeText(createHeadingUrl(id));
-            setState("copied");
-          } catch {
-            setState("failed");
-          }
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-        });
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(createHeadingUrl(id));
+          setState("copied");
+        } catch {
+          setState("failed");
+        }
+        setTimeout(() => setState("idle"), 2000);
       }}
     >
       {state === "idle" ? (
