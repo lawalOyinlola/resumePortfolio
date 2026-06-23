@@ -18,11 +18,23 @@ Live: **[resume.lawaloyinlola.com](https://resume.lawaloyinlola.com)** · Main p
 - React 19 + TypeScript
 - Tailwind CSS v4
 - shadcn/ui + Radix UI + Motion
+- cmdk (command palette)
+
+### Sections
+
+- **Profile header** — 3D isometric "LO" brand mark (press + keyboard‑click sound) and a time‑of‑day greeting
+- **Overview** — two‑column grid with live local time
+- **Stack** — tools grouped into numbered category rows
+- **Experience** & **Volunteering** — collapsible roles with animated chevrons, durations, and skill tags
+- **Projects**, **Awards**, **Certifications** — collapsible items with grayscale→color logos
+- **Testimonials** and a **GitHub contributions** graph
+- Interactive footer wordmark — "LAWAL" (a palindrome) flips letter‑by‑letter on scroll, with a cursor‑tracking gradient glow
 
 ### Features
 
 - Clean, responsive, light & dark design
-- Frontend-first positioning with full-stack range
+- **⌘K command palette** for search, section navigation, and brand assets
+- **Link previews** — hover any project/link for a live screenshot preview
 - One-click **résumé download** (Frontend & Software Engineer CVs, with Google Drive mirrors)
 - vCard export
 - Rich SEO: [JSON-LD](https://json-ld.org) `ProfilePage` + `Person` schema (with `sameAs`, `worksFor`, `alumniOf`, `knowsAbout`), sitemap, robots
