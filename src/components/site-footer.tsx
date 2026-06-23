@@ -1,6 +1,8 @@
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
 import { USER } from "@/features/profile/data/user";
 
+import { SiteFooterInteractiveLogotype } from "./site-footer-brand";
+
 export function SiteFooter() {
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
@@ -49,9 +51,18 @@ export function SiteFooter() {
           .
         </p>
       </div>
-      <div className="pb-[env(safe-area-inset-bottom,0px)]">
-        <div className="flex h-2" />
+
+      <SiteFooterInteractiveLogotype />
+
+      {/* Breathing room below the wordmark so the fixed FAB / scroll-to-top
+          don't crowd the footer (matches chanhdai's fade-bottom spacing). */}
+      <div className="h-24 md:h-8">
+        <p className="px-4 py-2 text-center font-mono text-xs text-balance text-muted-foreground">
+          Spelled backward, it&apos;s still Lawal{" "}
+          <span className="text-foreground/40">— a palindrome.</span>
+        </p>
       </div>
+      <div className="pb-[env(safe-area-inset-bottom,0px)]" />
     </footer>
   );
 }
