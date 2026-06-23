@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { AvatarLightsVariants } from "@/features/profile/types/user";
 import { cn } from "@/lib/utils";
 
@@ -61,14 +63,12 @@ function AvatarImage({
   className,
   alt,
   ...props
-}: React.ComponentProps<"img">) {
+}: Omit<React.ComponentProps<typeof Image>, "fill">) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className={cn(
-        "size-full rounded-full object-cover select-none",
-        className
-      )}
+    <Image
+      fill
+      sizes="(min-width: 640px) 160px, 128px"
+      className={cn("rounded-full object-cover select-none", className)}
       alt={alt}
       {...props}
     />
