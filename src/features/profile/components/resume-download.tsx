@@ -60,8 +60,10 @@ export function ResumeDownload() {
           size="lg"
           aria-label="Download résumé"
           className={cn(
-            "fixed right-4 z-50 gap-2 shadow-lg lg:right-8",
-            "bottom-[calc(1.4rem+env(safe-area-inset-bottom,0))] lg:bottom-8"
+            "fixed right-4 z-50 gap-2 lg:right-8",
+            "bottom-[calc(1.4rem+env(safe-area-inset-bottom,0))] lg:bottom-8",
+            // Make the primary action stand out: elevated shadow + crisp ring.
+            "shadow-xl ring-1 ring-black/10 dark:ring-white/15"
           )}
         >
           <DownloadIcon className="size-4" />

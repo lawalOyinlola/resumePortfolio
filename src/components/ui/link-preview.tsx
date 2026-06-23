@@ -7,13 +7,15 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import Image from "next/image";
 import { encode } from "qss";
+import { Slot as SlotPrimitive } from "radix-ui";
 import { type MouseEvent, useEffect, useState } from "react";
 
 import { UTM_PARAMS } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { addQueryParams } from "@/utils/url";
+
+const Slot = SlotPrimitive.Slot;
 
 type LinkPreviewProps = {
   children: React.ReactNode;
@@ -23,6 +25,13 @@ type LinkPreviewProps = {
   height?: number;
   quality?: number;
   layout?: string;
+  /**
+   * When true, the hover trigger merges onto the single child element instead
+   * of rendering a navigating <a>. Use this when the trigger should do
+   * something else on click (e.g. toggle a collapsible) while still showing
+   * the preview on hover — the preview image popup stays clickable.
+   */
+  asChild?: boolean;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -38,6 +47,7 @@ export const LinkPreview = ({
   // layout = "fixed",
   isStatic = false,
   imageSrc = "",
+  asChild = false,
 }: LinkPreviewProps) => {
   let src;
   if (!isStatic) {
@@ -81,7 +91,9 @@ export const LinkPreview = ({
     <>
       {isMounted ? (
         <div className="hidden">
-          <Image src={src} width={width} height={height} alt="hidden image" />
+          {/* Warm the cache so the popup is instant on hover. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt="" aria-hidden />
         </div>
       ) : null}
 
@@ -92,18 +104,24 @@ export const LinkPreview = ({
           setOpen(open);
         }}
       >
-        <HoverCardPrimitive.Trigger
-          onMouseMove={handleMouseMove}
-          className={cn("text-black dark:text-white", className)}
-          href={url}
-          target="_blank"
-          rel="noopener"
-        >
-          {children}
-        </HoverCardPrimitive.Trigger>
+        {asChild ? (
+          <HoverCardPrimitive.Trigger asChild onMouseMove={handleMouseMove}>
+            <Slot className={className}>{children}</Slot>
+          </HoverCardPrimitive.Trigger>
+        ) : (
+          <HoverCardPrimitive.Trigger
+            onMouseMove={handleMouseMove}
+            className={cn("text-current", className)}
+            href={url}
+            target="_blank"
+            rel="noopener"
+          >
+            {children}
+          </HoverCardPrimitive.Trigger>
+        )}
 
         <HoverCardPrimitive.Content
-          className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
+          className="origin-(--radix-hover-card-content-transform-origin)"
           side="top"
           align="center"
           sideOffset={10}
@@ -135,12 +153,13 @@ export const LinkPreview = ({
                   className="block rounded-xl border-2 border-transparent bg-white p-1 shadow hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
                 >
-                  <Image
-                    src={isStatic ? imageSrc : src}
-                    width={width}
-                    height={height}
-                    className="rounded-lg"
+                  {/* Natural aspect ratio, capped so landscape shots aren't
+                      cropped and tall (mobile) shots stay a reasonable height. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
                     alt="preview image"
+                    className="block max-h-[340px] max-w-[240px] rounded-lg"
                   />
                 </a>
               </motion.div>

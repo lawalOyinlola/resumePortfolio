@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { BrandContextMenu } from "@/components/brand-context-menu";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { USER } from "@/features/profile/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
@@ -16,9 +15,7 @@ export function ProfileHeader() {
     <div className="screen-line-after grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-edge">
       {/* Brand figure (FIG_001) — fills the hero */}
       <figure className="relative col-span-2 p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
-        <BrandContextMenu>
-          <OyinnMarkIsometric id="js-cover-mark" />
-        </BrandContextMenu>
+        <OyinnMarkIsometric id="js-cover-mark" />
 
         <figcaption className="pointer-events-none absolute right-2 bottom-2 font-mono text-xs leading-none text-muted-foreground/50 select-none sm:right-4">
           FIG_001

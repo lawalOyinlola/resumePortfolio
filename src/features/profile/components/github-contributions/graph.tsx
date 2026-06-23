@@ -97,9 +97,11 @@ export async function GitHubContributionGraph() {
                 day ? (
                   <Tooltip key={day.date}>
                     <TooltipTrigger asChild>
-                      <div
+                      <button
+                        type="button"
+                        aria-label={`${day.count} contribution${day.count === 1 ? "" : "s"} on ${dayjs(day.date).format("DD.MM.YYYY")}`}
                         className={cn(
-                          "size-2.5 rounded-[2px] ring-1 ring-foreground/5 ring-inset",
+                          "size-2.5 rounded-[2px] border-0 p-0 ring-1 ring-foreground/5 ring-inset",
                           LEVEL_CLASS[day.level] ?? LEVEL_CLASS[0]
                         )}
                       />

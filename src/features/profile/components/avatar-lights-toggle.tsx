@@ -12,6 +12,7 @@ export function AvatarLightsToggle(
   // Press "L" anywhere (outside inputs) to flip the avatar lights.
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (event.repeat) return;
       if (event.key.toLowerCase() !== "l" || event.metaKey || event.ctrlKey) {
         return;
       }

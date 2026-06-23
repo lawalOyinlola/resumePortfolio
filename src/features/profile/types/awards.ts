@@ -11,8 +11,13 @@ export type Award = {
    * School level or context label (e.g., "Grade 10", "University", "Personal Project").
    */
   grade: string;
-  /** Optional rich text description; Markdown and line breaks supported. */
+  /** Optional issuer/org logo (absolute URL or path under /public) shown in
+   *  place of the default crown icon. */
+  logoURL?: string;
+  /** Optional rich text summary; Markdown and line breaks supported. */
   description?: string;
+  /** Optional bullet highlights (Markdown inline links/emphasis supported). */
+  highlights?: string[];
   /** Optional URL to certificate, announcement, or reference material. */
   referenceLink?: string;
 };

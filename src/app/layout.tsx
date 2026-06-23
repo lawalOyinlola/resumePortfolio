@@ -11,7 +11,7 @@ import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { USER } from "@/features/profile/data/user";
-import { fontMono, fontSans } from "@/lib/fonts";
+import { fontMono, fontPixel, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { decodeEmail } from "@/utils/string";
 
@@ -195,6 +195,7 @@ export default async function RootLayout({
       className={cn(
         fontSans.variable,
         fontMono.variable,
+        fontPixel.variable,
         isDark ? "dark" : "light"
       )}
       style={{ colorScheme: isDark ? "dark" : "light" }}

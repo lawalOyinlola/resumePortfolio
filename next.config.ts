@@ -10,6 +10,56 @@ const nextConfig: NextConfig = {
         hostname: "api.microlink.io",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "api.iconify.design",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "docs.flutterflow.io",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "icons.duckduckgo.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "hng.tech",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "www.wcigoderich.org",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "trakkam.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "*.vercel.app",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "*.netlify.app",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "resolve.vote",
+        port: "",
+      },
     ],
     qualities: [75, 100],
   },

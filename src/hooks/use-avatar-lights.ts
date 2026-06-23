@@ -21,18 +21,16 @@ export function useAvatarLights() {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    const next: LightsState = stored === "on" ? "on" : "off";
-    setLights(next);
-    applyLights(next);
+    setLights(stored === "on" ? "on" : "off");
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, lights);
+    applyLights(lights);
+  }, [lights]);
+
   const toggleLights = useCallback(() => {
-    setLights((prev) => {
-      const next: LightsState = prev === "on" ? "off" : "on";
-      localStorage.setItem(STORAGE_KEY, next);
-      applyLights(next);
-      return next;
-    });
+    setLights((prev) => (prev === "on" ? "off" : "on"));
   }, []);
 
   return { lights, toggleLights };

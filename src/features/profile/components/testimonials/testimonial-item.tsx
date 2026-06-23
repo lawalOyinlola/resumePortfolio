@@ -1,4 +1,5 @@
 import { QuoteIcon } from "lucide-react";
+import Image from "next/image";
 
 import { LinkPreview } from "@/components/ui/link-preview";
 import { cn } from "@/lib/utils";
@@ -32,17 +33,18 @@ export function TestimonialItem({ testimonial }: { testimonial: Testimonial }) {
       <figcaption className="flex items-center gap-3">
         <span
           className={cn(
-            "flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted font-mono text-xs text-muted-foreground select-none",
+            "relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted font-mono text-xs text-muted-foreground select-none",
             "ring-1 ring-border"
           )}
           aria-hidden
         >
           {authorAvatar ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={authorAvatar}
-              alt=""
-              className="size-full object-cover"
+              alt={authorName}
+              fill
+              sizes="36px"
+              className="object-cover"
               loading="lazy"
             />
           ) : (

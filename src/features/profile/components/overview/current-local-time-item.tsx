@@ -23,11 +23,14 @@ function computeClock(timeZone: string) {
       new Date(now.toLocaleString("en-US", { timeZone: "UTC" })).getTime()) /
     60000;
 
-  const hoursDiff = Math.abs(targetOffset - viewerOffset) / 60;
+  const minutesDiff = Math.abs(targetOffset - viewerOffset);
+  const hours = Math.floor(minutesDiff / 60);
+  const minutes = minutesDiff % 60;
+  const direction = targetOffset > viewerOffset ? "ahead" : "behind";
   const diff =
-    hoursDiff < 1
+    minutesDiff < 60
       ? "same time"
-      : `${Math.floor(hoursDiff)}h ${targetOffset > viewerOffset ? "ahead" : "behind"}`;
+      : `${hours}h${minutes > 0 ? ` ${minutes}m` : ""} ${direction}`;
 
   return { time, diff };
 }

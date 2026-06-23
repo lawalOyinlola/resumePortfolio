@@ -12,18 +12,18 @@ import type { Testimonial } from "../types/testimonials";
  * tweet) and the name links out with a live hover preview.
  */
 export const TESTIMONIALS: Testimonial[] = [
-  {
-    authorName: "Sample — replace me",
-    authorTagline: "Engineering Manager · SafulPay",
-    quote:
-      "Lawal re-platformed our marketing site to Next.js and took Lighthouse from 68 to a perfect 100. He sweats the details most engineers skip — accessibility, performance budgets, clean PRs.",
-    // url: "https://www.linkedin.com/in/.../",
-  },
-  {
-    authorName: "Sample — replace me",
-    authorTagline: "Founder · Tech'N Goodwill",
-    quote:
-      "He led the team with a calm, ship-it mindset and owned Trakkam end to end — frontend, real-time, and the self-hosted infra. Standardizing our Git/PR flow cut review time by ~30%.",
-    // url: "https://www.linkedin.com/in/.../",
-  },
+  // {
+  //   authorName: "Sample — replace me",
+  //   authorTagline: "Engineering Manager · SafulPay",
+  //   quote:
+  //     "Lawal re-platformed our marketing site to Next.js and took Lighthouse from 68 to a perfect 100. He sweats the details most engineers skip — accessibility, performance budgets, clean PRs.",
+  //   // url: "https://www.linkedin.com/in/.../",
+  // },
+  // {
+  //   authorName: "Sample — replace me",
+  //   authorTagline: "Founder · Tech'N Goodwill",
+  //   quote:
+  //     "He led the team with a calm, ship-it mindset and owned Trakkam end to end — frontend, real-time, and the self-hosted infra. Standardizing our Git/PR flow cut review time by ~30%.",
+  //   // url: "https://www.linkedin.com/in/.../",
+  // },
 ];
