@@ -14,6 +14,7 @@ export function PronounceMyName({
 }) {
   return (
     <button
+      type="button"
       className={cn(
         "relative flex cursor-pointer touch-manipulation items-center justify-center text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
         "after:absolute after:-inset-2",
