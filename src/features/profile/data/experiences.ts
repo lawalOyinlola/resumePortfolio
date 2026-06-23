@@ -5,6 +5,7 @@ export const EXPERIENCES: Experience[] = [
     id: "safulpay",
     companyName: "SafulPay",
     companyLogo: "/images/safulpay-icon-green.webp",
+    companyWebsite: "https://safulpay.com",
     positions: [
       {
         id: "software-frontend-dev-2024",
@@ -45,18 +46,36 @@ export const EXPERIENCES: Experience[] = [
     companyLogo: "/images/techngoodwill-logo.webp",
     positions: [
       {
-        id: "software-lead-2023",
+        id: "team-lead-2024",
         title: "Software Developer & Team Lead",
         employmentPeriod: {
+          start: "02.2024",
+        },
+        employmentType: "Full-time",
+        icon: "business",
+        description: `- Directed cross-functional teams (UI/UX, marketing, backend) across 6+ web apps, including incubating SafulPay as an internal product before its spin-off as a standalone fintech company.
+- Standardized Git and GitHub workflows with structured pull requests, cutting code-review turnaround by 30% and accelerating delivery.
+- Authored product tutorials and component documentation for reliable cross-functional collaboration and fast onboarding.
+- Continued owning Trakkam's frontend and infrastructure while scaling team leadership responsibilities.`,
+        skills: [
+          "Team Leadership",
+          "Cross-functional Collaboration",
+          "Git Workflows",
+          "FinTech",
+        ],
+        isExpanded: true,
+      },
+      {
+        id: "software-dev-2023",
+        title: "Software/Frontend Developer",
+        employmentPeriod: {
           start: "05.2023",
+          end: "02.2024",
         },
         employmentType: "Full-time",
         icon: "code",
         description: `- Owned the frontend for Trakkam, a multi-tenant GPS fleet-management SaaS built in Next.js 16, TypeScript, Tailwind, and shadcn/ui, with interactive Mapbox geofencing, real-time WebSocket vehicle tracking, and a 7-tier role-based access model.
-- Extended into the full stack to ship Trakkam end to end (NestJS API, Prisma, self-hosted Traccar, NGINX, PM2, GitHub Actions CI/CD on a $5/month VPS), keeping operational cost roughly 8× lower than the equivalent managed setup.
-- Directed cross-functional teams (UI/UX, marketing, backend) across 6+ web apps, including incubating SafulPay as an internal product before its spin-off as a standalone fintech company.
-- Standardized Git and GitHub workflows with structured pull requests, cutting code-review turnaround by 30% and accelerating delivery.
-- Authored product tutorials and component documentation for reliable cross-functional collaboration and fast onboarding.`,
+- Extended into the full stack to ship Trakkam end to end (NestJS API, Prisma, self-hosted Traccar, NGINX, PM2, GitHub Actions CI/CD on a $5/month VPS), keeping operational cost roughly 8× lower than the equivalent managed setup.`,
         skills: [
           "Next.js",
           "TypeScript",
@@ -74,11 +93,7 @@ export const EXPERIENCES: Experience[] = [
           "GitHub Actions",
           "Role-Based Access Control",
           "GPS/IoT",
-          "FinTech",
-          "Team Leadership",
-          "Cross-functional Collaboration",
         ],
-        isExpanded: true,
       },
     ],
     isCurrentEmployer: true,
@@ -86,7 +101,8 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "hng-internship",
     companyName: "HNG Internship",
-    companyLogo: "/images/hng-logo.webp",
+    companyLogo: "https://hng.tech/favicon.ico",
+    companyWebsite: "https://hng.tech/",
     positions: [
       {
         id: "frontend-intern-2025",
