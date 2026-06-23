@@ -19,6 +19,9 @@ export function HelloTitle() {
   const [{ greeting, caption }, setGreeting] =
     useState<Greeting>(DEFAULT_GREETING);
 
+  // Resolved once on mount; a viewer who leaves the tab open across an
+  // hour boundary keeps the greeting from when they arrived. Acceptable
+  // tradeoff for a cosmetic, time-of-day touch.
   useEffect(() => {
     setGreeting(getGreeting(new Date().getHours()));
   }, []);
