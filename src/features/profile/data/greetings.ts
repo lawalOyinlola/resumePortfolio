@@ -31,7 +31,7 @@ export function getGreeting(hour: number): Greeting {
     };
   }
 
-  // 0–5: late night
+  // hour 0–4: late night/early morning
   return {
     greeting: "Still up?",
     caption: "// TODO: sleep — deferred to next sprint",
