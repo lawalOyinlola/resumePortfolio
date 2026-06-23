@@ -29,8 +29,8 @@ const BLOCKS: Block[] = [
   { u0: 320, u1: 512, v0: 192, v1: 256 }, // O — bottom bar
 ];
 
-const HEIGHT = 54; // extrusion depth at rest
-const PRESS = 14; // how far the lid sinks when pressed
+const HEIGHT = 44; // extrusion depth at rest
+const PRESS = 10; // how far the lid sinks when pressed
 
 // 2:1 isometric projection rising to the right: +u (reading direction) →
 // up-right, +v (letter top→bottom) → down-right, +z (extrusion) → up.
@@ -169,11 +169,11 @@ export function OyinnMarkIsometric({
       aria-label="Lawal Oyinlola mark"
       onPointerDown={(e) => {
         onPointerDown?.(e);
-        soundManager.playKeyPress();
         setTarget(PRESS);
       }}
       onPointerUp={(e) => {
         onPointerUp?.(e);
+        soundManager.playKeyPress();
         setTarget(0);
       }}
       onPointerLeave={(e) => {
@@ -185,7 +185,7 @@ export function OyinnMarkIsometric({
         setTarget(0);
       }}
       className={cn(
-        "group/iso block w-full cursor-pointer touch-manipulation outline-none select-none",
+        "group/iso block w-full cursor-pointer touch-manipulation outline-none select-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
         className
       )}
     >
