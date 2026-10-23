@@ -54,16 +54,16 @@ export function CollapsibleList<T>({
         <div className="screen-line-before -mt-px flex h-12 items-center justify-center">
           <CollapsibleTrigger asChild>
             <Button
-              className="group/collapsible-trigger gap-2 pr-2.5 pl-3"
+              className="group/collapsible-trigger h-8 gap-2 rounded-lg pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20 dark:inset-shadow-none"
               variant="secondary"
               size="sm"
             >
               <span className="hidden group-data-[state=closed]/collapsible-trigger:block">
-                Show More
+                Show more
               </span>
 
               <span className="hidden group-data-[state=open]/collapsible-trigger:block">
-                Show Less
+                Show less
               </span>
 
               <ChevronDownIcon
