@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { NextResponse } from "next/server";
 import sharp from "sharp";
 import VCard from "vcard-creator";
@@ -11,20 +14,20 @@ export async function GET() {
   const card = new VCard();
 
   card
-    .addName(USER.lastName, USER.firstName)
-    .addPhoneNumber(decodePhoneNumber(USER.phoneNumber))
-    .addAddress(USER.address)
-    .addEmail(decodeEmail(USER.email))
-    .addURL(USER.website);
+    .addName({ familyName: USER.lastName, givenName: USER.firstName })
+    .addPhoneNumber({ number: decodePhoneNumber(USER.phoneNumber) })
+    .addAddress({ locality: USER.address })
+    .addEmail({ address: decodeEmail(USER.email) })
+    .addUrl({ url: USER.website });
 
   const photo = await getVCardPhoto(USER.avatar);
   if (photo) {
-    card.addPhoto(photo.image, photo.mine);
+    card.addPhoto({ image: photo, mime: "JPEG" });
   }
 
   if (USER.jobs.length > 0) {
     const company = USER.jobs[0];
-    card.addCompany(company.company).addJobtitle(company.title);
+    card.addCompany({ name: company.company }).addJobtitle(company.title);
   }
 
   return new NextResponse(card.toString(), {
@@ -36,31 +39,21 @@ export async function GET() {
   });
 }
 
-async function getVCardPhoto(url: string) {
+/**
+ * Reads the avatar from `public/` and returns it as base64 JPEG. The avatar
+ * path is site-relative, and a server-side `fetch` of a relative URL always
+ * failed, so the card shipped without a photo.
+ */
+async function getVCardPhoto(avatarPath: string) {
   try {
-    const res = await fetch(url);
-
-    if (!res.ok) {
-      return null;
-    }
-
-    const buffer = Buffer.from(await res.arrayBuffer());
+    const filePath = path.join(process.cwd(), "public", avatarPath);
+    const buffer = await readFile(filePath);
     if (buffer.length === 0) {
       return null;
     }
 
-    const contentType = res.headers.get("Content-Type") || "";
-    if (!contentType.startsWith("image/")) {
-      return null;
-    }
-
     const jpegBuffer = await convertImageToJpeg(buffer);
-    const image = jpegBuffer.toString("base64");
-
-    return {
-      image,
-      mine: "jpeg",
-    };
+    return jpegBuffer.toString("base64");
   } catch {
     return null;
   }
