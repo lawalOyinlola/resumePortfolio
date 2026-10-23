@@ -1,21 +1,13 @@
-import { FlatCompat } from "@eslint/eslintrc";
-// import boundaries from "eslint-plugin-boundaries";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+import prettier from "eslint-config-prettier/flat";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-/**
- * @type {import("eslint").Linter.Config}
- * */
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  prettier,
   {
     files: ["**/*.{ts,tsx}"],
     rules: {
@@ -32,84 +24,18 @@ const eslintConfig = [
       "simple-import-sort/exports": "error",
     },
   },
-  // {
-  //   // Thanks @WebDevSimplified
-  //   plugins: {
-  //     boundaries,
-  //   },
-  //   settings: {
-  //     "boundaries/include": ["src/**/*"],
-  //     "boundaries/ignore": ["src/scripts/**/*", "src/__registry__/**/*"],
-  //     "boundaries/elements": [
-  //       {
-  //         mode: "full",
-  //         type: "shared",
-  //         pattern: [
-  //           "src/components/**/*",
-  //           "src/config/**/*",
-  //           "src/data/**/*",
-  //           "src/hooks/**/*",
-  //           "src/lib/**/*",
-  //           "src/registry/**/*",
-  //           "src/styles/**/*",
-  //           "src/types/**/*",
-  //           "src/utils/**/*",
-  //         ],
-  //       },
-  //       {
-  //         mode: "full",
-  //         type: "feature",
-  //         capture: ["featureName"],
-  //         pattern: ["src/features/*/**/*"],
-  //       },
-  //       {
-  //         mode: "full",
-  //         type: "app",
-  //         capture: ["_", "fileName"],
-  //         pattern: ["src/app/**/*"],
-  //       },
-  //       {
-  //         mode: "full",
-  //         type: "neverImport",
-  //         pattern: ["src/*"],
-  //       },
-  //     ],
-  //   },
-  //   rules: {
-  //     "boundaries/no-unknown": ["error"],
-  //     "boundaries/no-unknown-files": ["error"],
-  //     "boundaries/element-types": [
-  //       "error",
-  //       {
-  //         default: "disallow",
-  //         rules: [
-  //           {
-  //             from: ["shared"],
-  //             allow: ["shared"],
-  //           },
-  //           {
-  //             from: ["feature"],
-  //             allow: [
-  //               "shared",
-  //               ["feature", { featureName: "${from.featureName}" }],
-  //             ],
-  //           },
-  //           {
-  //             from: ["app", "neverImport"],
-  //             allow: ["shared", "feature"],
-  //           },
-  //           {
-  //             from: ["app"],
-  //             allow: [
-  //               ["app", { fileName: "*.css" }],
-  //               ["app", { fileName: "*.{ts,tsx}" }],
-  //             ],
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  // },
-];
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    // Legacy static site (pre-Next.js), not part of the app:
+    "js/**",
+    "css/**",
+    "customizer/**",
+  ]),
+]);
 
 export default eslintConfig;
