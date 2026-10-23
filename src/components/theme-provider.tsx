@@ -67,6 +67,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     if (stored === "light" || stored === "dark" || stored === "system") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- read after mount so SSR and first client render match
       setThemeState(stored);
     }
   }, []);
