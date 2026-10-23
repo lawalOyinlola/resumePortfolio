@@ -55,6 +55,17 @@ Open http://localhost:1408 in your browser.
 
 Next.js 16 removed `next lint`, and `next build` does not run ESLint. Run `pnpm lint` and `pnpm check-types` before you open a pull request. The pre-commit hook runs ESLint and Prettier on the staged files.
 
+## CI
+
+GitHub Actions runs on every pull request and every push to `main`:
+
+| Workflow       | Jobs                                                                |
+| -------------- | ------------------------------------------------------------------- |
+| `ci.yml`       | Type check, lint, and build. `pnpm audit` fails on high or critical |
+| `security.yml` | gitleaks on the full history, and CodeQL. Also runs every Monday    |
+
+Dependabot opens update pull requests every Monday, two weeks after a release. Security updates do not wait. All third-party actions are pinned to a commit SHA.
+
 ## Content
 
 The site content lives in `src/features/profile/data/`:
