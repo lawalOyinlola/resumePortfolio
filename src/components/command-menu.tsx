@@ -19,7 +19,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { toast } from "sonner";
 
 import { getMarkSVG, OyinnMark } from "@/components/oyinn-mark";
@@ -62,17 +68,19 @@ const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
   command: "Run Command",
 };
 
+const noopSubscribe = () => () => {};
+
 export function CommandMenu() {
   const router = useRouter();
   const { setTheme } = useTheme();
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
-  const [isMac, setIsMac] = useState(false);
-
-  useEffect(() => {
-    setIsMac(/mac/i.test(navigator.userAgent));
-  }, []);
+  const isMac = useSyncExternalStore(
+    noopSubscribe,
+    () => /mac/i.test(navigator.userAgent),
+    () => false
+  );
 
   const navigate = useCallback(
     (target: string) => {

@@ -21,6 +21,7 @@ export function useAvatarLights() {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- read after mount so SSR and first client render match
     setLights(stored === "on" ? "on" : "off");
   }, []);
 

@@ -54,7 +54,10 @@ export function CurrentLocalTimeItem({ timeZone }: { timeZone: string }) {
         clock ? (
           <>
             {clock.time}
-            <span className="ml-1 text-muted-foreground">// {clock.diff}</span>
+            <span className="ml-1 text-muted-foreground">
+              {"// "}
+              {clock.diff}
+            </span>
           </>
         ) : (
           "--:-- --"

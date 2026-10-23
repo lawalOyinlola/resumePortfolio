@@ -1,263 +1,65 @@
-# AI Agent Guidelines for chanhdai.com
+# AI agent guidelines
 
-This guide provides essential information for AI agents working with the chanhdai.com codebase - a Next.js portfolio, blog, and component registry website.
+This file gives AI agents the rules for work in this repository.
 
-## Project Overview
+## Project
 
-**chanhdai.com** is a minimal portfolio, component registry, and blog built with modern web technologies. It serves as:
+This repository is the résumé site of Lawal Oyinlola. The live site is https://resume.lawaloyinlola.com. The main portfolio is a different repository (`lawalOyinlola/lawalPortfolio`).
 
-- Personal portfolio for Nguyen Chanh Dai (@ncdai)
-- Component registry using shadcn/ui system
-- Blog with MDX content
-- Showcase for custom React components
+The site started from the open-source template [ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com). The two repositories do not share Git history.
 
-### Tech Stack
+## Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS v4
-- **UI Components**: shadcn/ui + custom components
-- **Package Manager**: pnpm
-- **Language**: TypeScript
-- **Content**: MDX for blog posts
-- **Deployment**: Vercel
+- Next.js 16 (App Router, Turbopack)
+- React 19 and TypeScript
+- Tailwind CSS v4
+- shadcn/ui, Radix UI, Motion, cmdk
+- pnpm
 
-## Project Structure
-
-### Key Directories
+## Structure
 
 ```
 src/
-├── app/                    # Next.js App Router pages
-│   ├── (app)/             # Main app routes
-│   ├── (llms)/            # LLM-related routes
-│   ├── og/                # Open Graph image generation
-│   └── rss/               # RSS feed generation
-├── components/            # Shared UI components
-├── registry/              # Component registry source
-├── __registry__/          # Auto-generated registry files (DO NOT EDIT)
-├── features/              # Feature-based modules
-│   ├── blog/              # Blog functionality
-│   └── profile/           # User profile data
-├── hooks/                 # Custom React hooks
-├── lib/                   # Utility libraries
-└── styles/                # Global styles
+├── app/                  # Routes: home, llms.txt and .md routes, OG images, vCard, sitemap, robots, manifest
+├── components/           # Shared components. ui/ holds shadcn/ui primitives.
+├── config/site.ts        # Site URL, résumé downloads, GitHub repository, UTM parameters
+├── features/profile/
+│   ├── components/       # One folder for each home page section
+│   ├── data/             # All personal content
+│   └── types/
+├── hooks/
+├── lib/
+├── registry/             # flip-sentences only
+├── styles/
+└── utils/
 ```
 
-### Important Files
+## Rules
 
-- `src/config/site.ts` - Site configuration and navigation
-- `src/config/registry.ts` - Registry configuration
-- `src/features/profile/data/user.ts` - User profile data
-- `src/registry/index.ts` - Registry entry point
-- `components.json` - shadcn/ui configuration
+1. Edit content only in `src/features/profile/data/`. Do not write personal content directly into components.
+2. Do not rename `src/features/profile/` to `src/features/portfolio/`. Upstream uses `portfolio`. This repository uses `profile`.
+3. Read the docs in `node_modules/next/dist/docs/` before you make a claim about a Next.js API.
+4. Do not add `next-themes`. `src/components/theme-provider.tsx` replaces it. The reason is in the comment at the top of that file.
+5. Do not add a blog, MDX content, or a component registry unless the owner asks for it. The owner removed them on purpose.
+6. Keep the code style: semicolons, double quotes, and `simple-import-sort` import order.
+7. Do not use names, marks, or likenesses from the upstream author. Read `TRADEMARK.md`.
+8. Do not remove the upstream copyright line from `LICENSE`. The MIT license requires it.
 
-## Component Registry System
-
-The project features a custom component registry built on top of shadcn/ui:
-
-### Registry Structure
-
-- **Components** (`src/registry/registry-components.ts`) - UI components
-- **Hooks** (`src/registry/registry-hook.ts`) - Custom React hooks
-- **Examples** (`src/registry/registry-examples.ts`) - Component demos
-- **Lib** (`src/registry/registry-lib.ts`) - Utility functions
-
-### Registry Types
-
-- `registry:component` - Reusable UI components
-- `registry:hook` - Custom React hooks
-- `registry:example` - Component examples/demos
-- `registry:lib` - Utility libraries
-
-### Available Components
-
-1. **theme-switcher** - Theme switching component
-2. **flip-sentences** - Text animation component
-3. **apple-hello-effect** - Apple-style writing effect
-4. **wheel-picker** - iOS-like wheel picker
-5. **work-experience** - Work experience display
-6. **use-controllable-state** - State management hook
-7. **utils** - Utility functions
-
-### Registry Build Process
+## Commands
 
 ```bash
-# Build registry internally
-pnpm registry:internal:build
-
-# Build shadcn registry
-pnpm registry:build
+pnpm dev           # Start the dev server on port 1408
+pnpm lint          # Run ESLint
+pnpm check-types   # Run the TypeScript check
+pnpm build         # Make a production build
 ```
 
-Auto-generated files (DO NOT EDIT):
+`next build` does not run ESLint in Next.js 16. Run `pnpm lint` and `pnpm check-types` before you commit.
 
-- `src/__registry__/index.tsx`
-- `src/__registry__/registry.autogenerated.json`
-- `public/r/*.json`
+## Port changes from upstream
 
-## Development Guidelines
-
-### Getting Started
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev  # Runs on port 1408
-
-# Build for production
-pnpm build
-```
-
-### Code Standards
-
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Next.js configuration
-- **Prettier**: Code formatting
-- **File naming**: kebab-case for files, PascalCase for components
-
-### Component Development
-
-1. Create component in `src/registry/[component-name]/`
-2. Add to appropriate registry file (`registry-components.ts`, etc.)
-3. Create examples in `src/registry/examples/`
-4. Run registry build commands
-5. Update documentation
-
-## Working with Content
-
-### Blog Posts
-
-- Location: `src/features/blog/content/`
-- Format: MDX files
-- Supports: Custom components, code blocks, metadata
-
-### User Profile
-
-**Profile Data Files** (`src/features/profile/data/`):
-
-- `user.ts` - Core personal information, bio, contact details, job history
-- `experiences.ts` - Detailed work experience, education, company information
-- `projects.ts` - Portfolio projects with descriptions, links, skills, logos
-- `tech-stack.ts` - Technology stack, programming languages, tools, frameworks
-- `awards.ts` - Competition awards, prizes, academic achievements, certificates
-- `certifications.ts` - Professional certifications, course completions, credentials
-- `social-links.ts` - Social media profiles, professional networks, contact links
-
-## Environment & Configuration
-
-### Environment Variables
-
-See `.env.example` for required variables:
-
-- `APP_URL` - Application URL
-- `REGISTRY_URL` - Registry base URL
-
-### Site Configuration
-
-- Navigation: `MAIN_NAV` in `src/config/site.ts`
-- Theme colors: `META_THEME_COLORS`
-- GitHub repo: `SOURCE_CODE_GITHUB_REPO`
-
-## Common Tasks
-
-### Adding a New Component
-
-1. Create component directory: `src/registry/[name]/`
-2. Implement component with proper TypeScript types
-3. Add to `src/registry/registry-components.ts`
-4. Create example in `src/registry/examples/`
-5. Build registry: `pnpm registry:build`
-
-### Updating User Information
-
-Edit `src/features/profile/data/user.ts` with new:
-
-- Personal information
-- Job details
-- Project descriptions
-- Contact information
-
-### Adding Blog Posts
-
-1. Create MDX file in `src/features/blog/content/`
-2. Include frontmatter metadata
-3. Use custom components for enhanced content
-
-### Styling Guidelines
-
-- Use Tailwind CSS v4 syntax
-- Follow existing color scheme (zinc-based)
-- Support dark/light modes
-- Use CSS variables for theme colors
-
-## Important Notes
-
-### Registry Dependencies
-
-- Components may depend on external packages
-- Registry dependencies use `<registryBaseUrl>` placeholder
-- Build process replaces placeholders with actual URLs
-
-### Auto-generated Files
-
-**NEVER EDIT** these files directly:
-
-- `src/__registry__/index.tsx`
-- `src/__registry__/registry.autogenerated.json`
-- Files in `public/r/`
-
-### Performance Considerations
-
-- Components use React.lazy() for code splitting
-- Images optimized with Next.js Image component
-- MDX content is statically generated
-
-### Personal Information
-
-When adapting this codebase, ensure ALL personal information is replaced:
-
-**Key Areas to Update**:
-
-- All files in `src/features/profile/data/` (see User Profile section above)
-- `src/config/site.ts` - Site name, navigation, GitHub repo, UTM params
-- Blog posts in `src/features/blog/content/`
-- Asset URLs (images, logos, audio files) throughout the codebase
-
-**Important**: Profile data contains encoded contact information (base64) and specific asset URLs that must be updated for your own use.
-
-## Deployment
-
-### Vercel Deployment
-
-- Automatic deployment from GitHub
-- Environment variables configured in Vercel dashboard
-- Build command: `pnpm build`
-- Output directory: `.next`
-
-### Build Commands
-
-```bash
-pnpm build          # Production build
-pnpm start          # Start production server
-pnpm preview        # Build and preview locally
-```
-
-## Contributing
-
-### Code Quality
-
-- Run `pnpm lint` before committing
-- Use `pnpm format:write` for code formatting
-- Check types with `pnpm check-types`
-
-### Testing Registry Components
-
-- Test components in isolation
-- Verify registry build process
-- Test installation via shadcn CLI
-
----
-
-**Note**: This is a personal portfolio project. When using as a template, ensure all personal information is removed and replaced with your own content.
+1. Find the change in https://github.com/ncdai/chanhdai.com.
+2. Map `src/features/portfolio/` to `src/features/profile/`.
+3. Copy the change, then apply the local code style.
+4. Remove all upstream personal data and branding from the copied code.
+5. Run `pnpm lint`, `pnpm check-types`, and `pnpm build`.

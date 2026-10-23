@@ -9,9 +9,10 @@ import {
 } from "motion/react";
 import { encode } from "qss";
 import { Slot as SlotPrimitive } from "radix-ui";
-import { type MouseEvent, useEffect, useState } from "react";
+import { type MouseEvent, useState } from "react";
 
 import { UTM_PARAMS } from "@/config/site";
+import { useIsClient } from "@/hooks/use-is-client";
 import { cn } from "@/lib/utils";
 import { addQueryParams } from "@/utils/url";
 
@@ -69,11 +70,7 @@ export const LinkPreview = ({
 
   const [isOpen, setOpen] = useState(false);
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useIsClient();
 
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);

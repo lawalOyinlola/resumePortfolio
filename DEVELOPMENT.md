@@ -1,13 +1,11 @@
 # Development
 
-This guide provides instructions on how to set up and run the project locally.
+This guide shows how to set up and run the project on your computer.
 
 ## Prerequisites
 
-Ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (Latest LTS version recommended)
-- [pnpm](https://pnpm.io/)
+- [Node.js](https://nodejs.org/) 22
+- [pnpm](https://pnpm.io/) 10 or later
 - [Git](https://git-scm.com/)
 
 ## Setup
@@ -15,78 +13,81 @@ Ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ncdai/chanhdai.com.git minimal-portfolio
-cd minimal-portfolio
+git clone https://github.com/lawalOyinlola/resumePortfolio.git
+cd resumePortfolio
 ```
 
 ### 2. Install dependencies
 
 ```bash
-pnpm i
+pnpm install
 ```
 
-### 3. Configure Environment Variables
+### 3. Set the environment variables
 
-Create a `.env.local` file based on `.env.example`:
+Copy `.env.example` to `.env.local`, then edit the values:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Then, update the necessary environment variables inside `.env.local`.
-
-### 4. Run the development server
+### 4. Start the development server
 
 ```bash
 pnpm dev
 ```
 
-The application should now be available at http://localhost:1408
+Open http://localhost:1408 in your browser.
 
-## Building for Production
+## Scripts
+
+| Script              | What it does                                |
+| ------------------- | ------------------------------------------- |
+| `pnpm dev`          | Starts the development server on port 1408  |
+| `pnpm build`        | Makes a production build                    |
+| `pnpm start`        | Serves the production build                 |
+| `pnpm preview`      | Builds, then serves the build on port 1408  |
+| `pnpm lint`         | Runs ESLint on the project                  |
+| `pnpm lint:fix`     | Runs ESLint and applies the automatic fixes |
+| `pnpm check-types`  | Runs the TypeScript compiler without output |
+| `pnpm format:check` | Checks the formatting with Prettier         |
+| `pnpm format:write` | Formats the files with Prettier             |
+
+Next.js 16 removed `next lint`, and `next build` does not run ESLint. Run `pnpm lint` and `pnpm check-types` before you open a pull request. The pre-commit hook runs ESLint and Prettier on the staged files.
+
+## Content
+
+The site content lives in `src/features/profile/data/`:
+
+| File                | Content                                   |
+| ------------------- | ----------------------------------------- |
+| `user.ts`           | Name, bio, contact details, current roles |
+| `experiences.ts`    | Work history                              |
+| `volunteering.ts`   | Volunteer roles                           |
+| `projects.ts`       | Projects                                  |
+| `tech-stack.ts`     | Tools, grouped by category                |
+| `awards.ts`         | Awards                                    |
+| `certifications.ts` | Certifications                            |
+| `testimonials.ts`   | Testimonials                              |
+| `social-links.ts`   | Social profiles                           |
+| `greetings.ts`      | Time-of-day greetings in the header       |
+
+The `/llms.txt`, `/llms-full.txt`, and per-section `.md` routes read the same data. You do not need to edit them when the content changes.
+
+## Building for production
 
 ```bash
 pnpm build
-```
-
-After building, start the application with:
-
-```bash
 NODE_ENV=production pnpm start
 ```
 
-## Registry
+## Upstream
 
-This project utilizes **shadcn Registry**, which allows you to manage and distribute custom components, hooks, pages, and other files across multiple React projects. By hosting a registry, you can reuse UI components easily without manually copying code between projects.
-
-### Using Registry in other React projects
-
-If you're working on a different React project and want to reuse the custom components from this repository, you can add them using the **shadcn CLI** with the following commands:
+This project started from [ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com). To compare with the upstream code:
 
 ```bash
-npx shadcn@latest add @ncdai/utils
-npx shadcn@latest add @ncdai/theme-switcher
-npx shadcn@latest add @ncdai/flip-sentences
-npx shadcn@latest add @ncdai/apple-hello-effect
-npx shadcn@latest add @ncdai/wheel-picker
-npx shadcn@latest add @ncdai/use-controllable-state
+git remote add upstream https://github.com/ncdai/chanhdai.com.git
+git fetch upstream
 ```
 
-> Note: These components are compatible with [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4) and [React 19](https://react.dev/blog/2024/12/05/react-19).
-
-### Registry configuration
-
-Documentation: [shadcn Registry Docs](https://ui.shadcn.com/docs/registry)
-
-Source files:
-
-- `./src/registry`
-
-Before using the registry, run the following command to build and generate the registry JSON files:
-
-```bash
-pnpm registry:internal:build
-pnpm registry:build
-```
-
-When running the `npx shadcn@latest add <registry-url>` command, the selected component will be automatically downloaded and integrated into your project.
+The two repositories do not share Git history, so `git merge upstream/main` does not work. Port changes one file at a time. Upstream uses `src/features/portfolio/`, and this repository uses `src/features/profile/`.

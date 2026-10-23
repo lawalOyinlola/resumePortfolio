@@ -111,12 +111,15 @@ export function OyinnMarkIsometric({
   const rafRef = useRef<number | null>(null);
 
   const animate = useCallback(() => {
-    const target = targetRef.current;
-    const next = depthRef.current + (target - depthRef.current) * 0.3;
-    const done = Math.abs(target - next) < 0.4;
-    depthRef.current = done ? target : next;
-    setDepth(depthRef.current);
-    rafRef.current = done ? null : requestAnimationFrame(animate);
+    const step = () => {
+      const target = targetRef.current;
+      const next = depthRef.current + (target - depthRef.current) * 0.3;
+      const done = Math.abs(target - next) < 0.4;
+      depthRef.current = done ? target : next;
+      setDepth(depthRef.current);
+      rafRef.current = done ? null : requestAnimationFrame(step);
+    };
+    step();
   }, []);
 
   const setTarget = useCallback(

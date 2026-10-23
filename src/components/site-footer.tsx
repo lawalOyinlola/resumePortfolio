@@ -38,8 +38,8 @@ export function SiteFooter() {
             rel="noopener"
           >
             @ncdai
-          </a>{" "}
-          Minimalist Portfolio. Read this site as{" "}
+          </a>
+          &apos;s minimalist portfolio. Read this site as{" "}
           <a
             className="link"
             href={`${SITE_INFO.url}/llms.txt`}

@@ -11,6 +11,7 @@ import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params";
 // links stay plain. (rehypeAddQueryParams already appended UTM params to the
 // href, so LinkPreview previews the same URL the user clicks.)
 const components: Components = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- keep `node` out of DOM props
   a({ node, href, children, ...props }) {
     if (href && /^https?:\/\//i.test(href)) {
       return (
