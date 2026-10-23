@@ -58,7 +58,7 @@
     "sharp": "^0.35.5",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
-    "vcard-creator": "^0.7.2"
+    "vcard-creator": "^1.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
