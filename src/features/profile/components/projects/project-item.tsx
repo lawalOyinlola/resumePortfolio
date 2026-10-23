@@ -1,6 +1,6 @@
 "use client";
 
-import { InfinityIcon, LinkIcon } from "lucide-react";
+import { ArrowUpRightIcon, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -34,6 +34,7 @@ export function ProjectItem({
   const { start, end } = project.period;
   const isOngoing = !end;
   const isSinglePeriod = end === start;
+  const linkLabel = project.kind === "lab" ? "View lab" : "View project";
 
   const chevronRef = useRef<ChevronsUpDownIconHandle>(null);
 
@@ -50,7 +51,7 @@ export function ProjectItem({
       asChild
     >
       <div className={className}>
-        <div className="group/project flex items-center transition-colors hover:bg-accent/20">
+        <div className="group/project flex items-center transition-[background-color] ease-out hover:bg-accent-muted">
           {project.logo ? (
             <Image
               src={project.logo}
@@ -111,16 +112,18 @@ export function ProjectItem({
               </CollapsibleTrigger>
             </LinkPreview>
 
-            {/* External link with a tooltip */}
-            <SimpleTooltip content="Open Project Link">
+            {/* External link: "View lab" for security labs, "View project"
+                for everything else. The label hides on small screens. */}
+            <SimpleTooltip content={`${linkLabel} (opens in a new tab)`}>
               <a
                 href={addQueryParams(project.link, UTM_PARAMS)}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open Project Link"
-                className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground transition-colors select-none after:absolute after:-inset-2 hover:text-foreground"
+                aria-label={`${linkLabel}: ${project.title} (opens in a new tab)`}
+                className="relative flex h-6 shrink-0 items-center justify-center gap-1 font-mono text-xs text-muted-foreground transition-colors select-none after:absolute after:-inset-2 hover:text-foreground"
               >
-                <LinkIcon className="pointer-events-none size-4" />
+                <span className="max-sm:hidden">{linkLabel}</span>
+                <ArrowUpRightIcon className="pointer-events-none size-4" />
               </a>
             </SimpleTooltip>
 

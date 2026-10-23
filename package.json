@@ -1,7 +1,7 @@
 {
   "name": "lawal-oyinlola-resume",
   "version": "0.1.0",
-  "description": "Résumé and portfolio site for Lawal Oyinlola, Frontend Engineer (full-stack capable).",
+  "description": "Résumé of Lawal Oyinlola, software engineer and application security.",
   "homepage": "https://resume.lawaloyinlola.com",
   "license": "MIT",
   "author": {
@@ -43,6 +43,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "date-fns": "4.4.0",
     "dayjs": "^1.11.21",
     "jotai": "^2.20.0",
     "libphonenumber-js": "^1.13.4",

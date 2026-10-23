@@ -1,23 +1,32 @@
 import { LoaderIcon } from "lucide-react";
 import { Suspense } from "react";
 
+import { getGitHubContributions } from "@/features/profile/data/github-contributions";
+
+import { Panel } from "../panel";
 import { GitHubContributionGraph } from "./graph";
 
 export function GitHubContributions() {
   return (
-    <div>
-      <h3 className="sr-only">GitHub Contributions</h3>
+    <Panel>
+      <h2 className="sr-only">GitHub contributions</h2>
 
       <Suspense fallback={<GitHubContributionFallback />}>
-        <GitHubContributionGraph />
+        <GitHubContributionData />
       </Suspense>
-    </div>
+    </Panel>
   );
+}
+
+async function GitHubContributionData() {
+  const contributions = await getGitHubContributions();
+  if (!contributions || contributions.length === 0) return null;
+  return <GitHubContributionGraph data={contributions} />;
 }
 
 function GitHubContributionFallback() {
   return (
-    <div className="screen-line-after flex h-32 w-full items-center justify-center">
+    <div className="flex h-45 w-full items-center justify-center">
       <LoaderIcon className="size-5 animate-spin text-muted-foreground" />
     </div>
   );

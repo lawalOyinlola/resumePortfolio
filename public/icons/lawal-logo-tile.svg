@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Lawal Oyinlola">
+  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" fill="#18181b" stroke="rgba(255,255,255,0.16)"/>
+  <g transform="translate(7 7) scale(0.0315)" fill="#ffffff">
+    <path d="M538.13 292.31L1037.26 292.31L1037.26 787.69L645.31 787.69L645.31 680.5L538.13 680.5Z M645.31 399.5L645.31 680.5L930.08 680.5L930.08 399.5Z" fill-rule="evenodd"/>
+    <rect x="42.74" y="292.32" width="107.18" height="388.19"/>
+    <rect x="149.92" y="680.5" width="281.01" height="107.18"/>
+  </g>
+</svg>

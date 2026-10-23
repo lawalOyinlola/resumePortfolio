@@ -7,6 +7,7 @@ import {
   CornerDownLeftIcon,
   DownloadIcon,
   FileTextIcon,
+  FlaskConicalIcon,
   FolderGitIcon,
   LayersIcon,
   MonitorIcon,
@@ -42,6 +43,7 @@ import {
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { RESUME_DOWNLOADS, UTM_PARAMS } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
+import { useClickSound } from "@/hooks/soundcn/use-click-sound";
 import { addQueryParams } from "@/utils/url";
 
 import { Button } from "./ui/button";
@@ -73,6 +75,7 @@ const noopSubscribe = () => () => {};
 export function CommandMenu() {
   const router = useRouter();
   const { setTheme } = useTheme();
+  const [click] = useClickSound();
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -127,6 +130,12 @@ export function CommandMenu() {
         title: "Experience",
         icon: <BriefcaseBusinessIcon />,
         shortcut: "GE",
+      },
+      {
+        id: "labs",
+        title: "Security Labs",
+        icon: <FlaskConicalIcon />,
+        shortcut: "GL",
       },
       {
         id: "projects",
@@ -217,6 +226,7 @@ export function CommandMenu() {
         keywords: ["theme", "mode"],
         run: () => {
           setOpen(false);
+          click();
           setTheme("light");
         },
       },
@@ -228,6 +238,7 @@ export function CommandMenu() {
         keywords: ["theme", "mode"],
         run: () => {
           setOpen(false);
+          click();
           setTheme("dark");
         },
       },
@@ -239,6 +250,7 @@ export function CommandMenu() {
         keywords: ["theme", "mode"],
         run: () => {
           setOpen(false);
+          click();
           setTheme("system");
         },
       },
@@ -272,7 +284,7 @@ export function CommandMenu() {
       Theme: theme,
       Other: other,
     };
-  }, [navigate, openExternal, setTheme]);
+  }, [click, navigate, openExternal, setTheme]);
 
   // value → kind, for the footer action label.
   const kindByValue = useMemo(() => {
@@ -290,6 +302,7 @@ export function CommandMenu() {
       a: "#about",
       s: "#stack",
       e: "#experience",
+      l: "#labs",
       p: "#projects",
       w: "#awards",
       c: "#certs",
@@ -341,10 +354,10 @@ export function CommandMenu() {
     <>
       <Button
         data-slot="command-menu-trigger"
-        variant="outline"
+        variant="ghost"
         size="sm"
         onClick={() => setOpen(true)}
-        className="gap-1.5 rounded-full pl-2 text-muted-foreground shadow-none select-none hover:text-foreground"
+        className="h-8 gap-1.5 rounded-lg border-none px-1.5 text-muted-foreground select-none hover:text-foreground"
       >
         <SearchIcon className="size-4" />
         <span className="font-sans text-sm/4 font-medium sm:hidden">

@@ -2,7 +2,6 @@ import { Markdown } from "@/components/markdown";
 import { Prose } from "@/components/ui/typography";
 import { USER } from "@/features/profile/data/user";
 
-import { GitHubContributions } from "../github-contributions";
 import { Panel, PanelContent, PanelHeader } from "../panel";
 import { HelloTitle } from "./hello-title";
 
@@ -13,13 +12,11 @@ export function Hello() {
         <HelloTitle />
       </PanelHeader>
 
-      <PanelContent className="screen-line-after">
+      <PanelContent>
         <Prose>
           <Markdown>{USER.about}</Markdown>
         </Prose>
       </PanelContent>
-
-      <GitHubContributions />
     </Panel>
   );
 }
