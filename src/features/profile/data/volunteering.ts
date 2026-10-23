@@ -16,17 +16,19 @@ export const VOLUNTEERING: Experience[] = [
         employmentPeriod: { start: "05.2024" },
         employmentType: "Volunteer",
         icon: "code",
-        description: `- Built and maintain the [church website](https://www.wcigoderich.org) for Winners Chapel International, Goderich.
-- Assist the technical and media unit, helping run the tech side of services.
-- Provide general technical support across the church as needed.`,
+        description: `- Designed, built and maintain the [church website](https://www.wcigoderich.org) in Next.js 16, TypeScript and Tailwind CSS 4 with Supabase, GSAP and Motion: a sermon and media library, event schedules and ministry pages.
+- Support the technical and media team during services as one of its members (photography, video recording and editing, live streaming), and onboard new volunteers on the tools.`,
         skills: [
           "Next.js",
+          "TypeScript",
+          "Supabase",
           "Web Development",
           "Technical Support",
           "Media Operations",
           "Photography",
           "Video Recording",
           "Video Editing",
+          "Live Streaming",
           "Teaching & Onboarding",
         ],
         isExpanded: true,
