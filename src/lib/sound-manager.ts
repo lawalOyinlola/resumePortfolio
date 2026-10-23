@@ -31,10 +31,6 @@ class SoundManager {
     });
   }
 
-  playClick() {
-    this.playAudio("/audio/click.wav");
-  }
-
   /** Tactile "keyboard press" used by the brand mark (distinct from the click). */
   playKeyPress() {
     this.playAudio("/audio/keyboard-press.mp3");
