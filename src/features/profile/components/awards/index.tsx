@@ -16,7 +16,7 @@ export function Awards() {
     <Panel id="awards">
       <PanelHeader>
         <PanelTitle>
-          <a href="#awards">Honors & Awards</a>
+          <a href="#awards">Honors</a>
           <PanelTitleSup>({AWARDS.length})</PanelTitleSup>
           <PanelTitleCopy id="awards" />
         </PanelTitle>
