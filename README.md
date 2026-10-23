@@ -1,6 +1,6 @@
-# Lawal Oyinlola — Résumé / Portfolio
+# Lawal Oyinlola — Résumé
 
-A minimalist résumé and portfolio site for **Lawal Oyinlola**, Frontend Engineer (full-stack capable). Built and maintained by Lawal Oyinlola, on top of the open-source [chanhdai.com](https://chanhdai.com) template.
+A minimalist résumé site for **Lawal Oyinlola**, Frontend Engineer (full-stack capable). It started from the open-source [chanhdai.com](https://github.com/ncdai/chanhdai.com) template and has its own brand, content, and features.
 
 Live: **[resume.lawaloyinlola.com](https://resume.lawaloyinlola.com)** · Main portfolio: **[lawaloyinlola.com](https://lawaloyinlola.com)**
 
@@ -12,47 +12,50 @@ Live: **[resume.lawaloyinlola.com](https://resume.lawaloyinlola.com)** · Main p
 
 ## Overview
 
-### Tech Stack
+### Stack
 
 - Next.js 16 (App Router, Turbopack)
-- React 19 + TypeScript
+- React 19 and TypeScript
 - Tailwind CSS v4
-- shadcn/ui + Radix UI + Motion
-- cmdk (command palette)
+- shadcn/ui, Radix UI, and Motion
+- cmdk for the command palette
 
 ### Sections
 
-- **Profile header** — 3D isometric "LO" brand mark (press + keyboard‑click sound) and a time‑of‑day greeting
-- **Overview** — two‑column grid with live local time
-- **Stack** — tools grouped into numbered category rows
-- **Experience** & **Volunteering** — collapsible roles with animated chevrons, durations, and skill tags
-- **Projects**, **Awards**, **Certifications** — collapsible items with grayscale→color logos
-- **Testimonials** and a **GitHub contributions** graph
-- Interactive footer wordmark — "LAWAL" (a palindrome) flips letter‑by‑letter on scroll, with a cursor‑tracking gradient glow
+- **Profile header**: a 3D isometric "LO" mark with a press animation and a key-click sound, plus a greeting that changes with the time of day
+- **Overview**: role, location, live local time, and contact details in a two-column grid
+- **About**: a short bio and a GitHub contributions graph
+- **Stack**: tools in numbered category rows
+- **Experience** and **Volunteering**: collapsible roles with durations and skill tags
+- **Projects**, **Awards**, and **Certifications**: collapsible items with logos that go from grayscale to color on hover
+- **Testimonials**: hidden until the data file has entries
+- **Footer wordmark**: "LAWAL" is a palindrome, so the letters flip one at a time as you scroll, and a gradient glow follows the cursor
 
 ### Features
 
-- Clean, responsive, light & dark design
-- **⌘K command palette** for search, section navigation, and brand assets
-- **Link previews** — hover any project/link for a live screenshot preview
-- One-click **résumé download** (Frontend & Software Engineer CVs, with Google Drive mirrors)
+- Light and dark themes, with no flash of the wrong theme and no hydration mismatch
+- **⌘K command palette** for search, section links, résumé downloads, and brand assets
+- **Link previews**: hover an external link to see a screenshot of the page
+- One-click **résumé download** (Frontend Engineer and Software Engineer versions, with Google Drive copies as a fallback)
 - vCard export
-- Rich SEO: [JSON-LD](https://json-ld.org) `ProfilePage` + `Person` schema (with `sameAs`, `worksFor`, `alumniOf`, `knowsAbout`), sitemap, robots
-- AI-discoverable: explicit AI-crawler allowances and [`/llms.txt`](https://llmstxt.org) + `/llms-full.txt`
-- Spam-protected email and phone
-- Installable PWA
+- SEO: [JSON-LD](https://json-ld.org) `ProfilePage` and `Person` schema (`sameAs`, `worksFor`, `alumniOf`, `knowsAbout`), sitemap, and robots rules
+- AI-readable: explicit rules for AI crawlers, [`/llms.txt`](https://resume.lawaloyinlola.com/llms.txt), `/llms-full.txt`, and a `.md` route for each section
+- Email and phone number encoded against spam bots
+- Installable as a PWA
 
 ## Development
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for setup and scripts.
+Read the [Development Guide](./DEVELOPMENT.md) for setup, scripts, and where the content lives.
 
 ## License
 
-Licensed under the [MIT license](./LICENSE). © Lawal Oyinlola.
+The code is licensed under the [MIT license](./LICENSE). The license keeps the copyright notice of the original template author and adds mine.
 
-If you reuse this code, please remove all personal information (name, contact details, résumé PDFs, projects, and analytics) before publishing your own site.
+My name, the "LO" mark, the "LAWAL" wordmark, my photos, my voice recording, and my résumé are not part of the license grant. The [trademark and brand policy](./TRADEMARK.md) explains what you can and cannot do with them.
+
+You are welcome to fork this repository. Before you publish your site, remove all of my personal information and replace the branding. The [policy](./TRADEMARK.md#if-you-fork-this-repository) lists the files to change.
 
 ## Acknowledgments
 
-- Built on the open-source [chanhdai.com](https://chanhdai.com) portfolio template by [Nguyen Chanh Dai (@ncdai)](https://github.com/ncdai). Thank you for the original design and engineering.
-- The open-source community for the tools and libraries that power this site: [React](https://react.dev), [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), [Radix UI](https://www.radix-ui.com), [Motion](https://motion.dev), [shadcn/ui](https://ui.shadcn.com), [Lucide](https://lucide.dev), and others listed in `package.json`.
+- [Nguyen Chanh Dai (@ncdai)](https://github.com/ncdai) for the open-source [chanhdai.com](https://github.com/ncdai/chanhdai.com) template and its design and engineering. If the template helps you too, consider [sponsoring him](https://github.com/sponsors/ncdai).
+- The open-source projects this site uses: [React](https://react.dev), [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), [Radix UI](https://www.radix-ui.com), [Motion](https://motion.dev), [shadcn/ui](https://ui.shadcn.com), [Lucide](https://lucide.dev), and the others in `package.json`.
