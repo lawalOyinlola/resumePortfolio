@@ -48,6 +48,11 @@ export type User = {
   /** Public URL to avatar image */
   avatar: string;
   /**
+   * Optional sketch-style avatar shown in light mode. `avatar` is shown in
+   * dark mode. Use the same crop as `avatar`.
+   */
+  avatarSketch?: string;
+  /**
    * Optional 4-variant interactive avatar (lights on/off in light & dark).
    * When omitted, the header falls back to the single `avatar` image.
    */
