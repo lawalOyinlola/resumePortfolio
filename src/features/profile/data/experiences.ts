@@ -15,24 +15,25 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `*Incubated as an internal product at Tech'N Goodwill, then spun off as an independent fintech company in 2025.*
+        description: `*Digital payments platform in Sierra Leone with 10,000+ users and 1,300+ agents on iOS and Android. Incubated at Tech'N Goodwill, then spun off as an independent fintech in 2025.*
 
-- Re-platformed the SafulPay corporate website to Next.js, raising Lighthouse scores from 68 to a perfect 100 across Performance, Accessibility, Best Practices, and SEO, while also shipping more sections and content, through code-splitting, lazy loading, image optimization, and accessibility hardening.
-- Converted complex Figma designs into pixel-perfect, WCAG-accessible components for customer portals and agency monitoring dashboards.
-- Engineered the SafulPay v2 frontend architecture with Golang backend engineers on API consumption and complex state management, after co-developing the v1 stack that paired a FlutterFlow frontend with a PHP backend.
-- Built the SafulPay Agent & Merchant Onboarding web app used by field marketers, with analytics dashboards, activity monitoring, and a performance leaderboard for tracking marketer productivity.`,
+- Raised the corporate website's Lighthouse scores from 68 to 100 in all four categories in a seven-day solo sprint, by re-platforming it to Next.js with code splitting, lazy loading, image optimization and accessibility fixes, while adding new sections in the same pass.
+- Led and built the agency banking dashboard that field marketers use to onboard and verify agents and merchants, with KYC document capture, role-scoped views, activity monitoring and a performance leaderboard, supporting a network that has grown past 1,300 agents.
+- Engineered the v2 frontend architecture in React and TypeScript with the Go backend team, covering API contracts, authenticated sessions and complex client state, after co-building the v1 app in FlutterFlow on a PHP backend.
+- Rejected malformed input before it reached the payments API by validating every onboarding and dashboard form with Zod and React Hook Form at the client trust boundary.`,
         skills: [
           "Next.js",
           "React",
           "TypeScript",
           "Tailwind CSS",
+          "Zod",
+          "React Hook Form",
           "FlutterFlow",
           "Figma",
           "Performance Optimization",
           "Accessibility",
-          "SEO",
-          "State Management",
-          "REST APIs",
+          "Input Validation",
+          "KYC",
           "FinTech",
         ],
         isExpanded: true,
@@ -46,97 +47,46 @@ export const EXPERIENCES: Experience[] = [
     companyLogo: "/images/techngoodwill-logo.webp",
     positions: [
       {
-        id: "team-lead-2024",
+        id: "team-lead-2023",
         title: "Software Developer & Team Lead",
         employmentPeriod: {
-          start: "02.2024",
+          start: "05.2023",
         },
         employmentType: "Full-time",
         icon: "business",
-        description: `- Directed cross-functional teams (UI/UX, marketing, backend) across 6+ web apps, including incubating SafulPay as an internal product before its spin-off as a standalone fintech company.
-- Standardized Git and GitHub workflows with structured pull requests, cutting code-review turnaround by 30% and accelerating delivery.
-- Authored product tutorials and component documentation for reliable cross-functional collaboration and fast onboarding.
-- Continued owning Trakkam's frontend and infrastructure while scaling team leadership responsibilities.`,
+        description: `*Software and digital products company of 25 people. Incubated SafulPay before its 2025 spin-off, and builds Trakkam.*
+
+- Lead the 6-person engineering and IT team across UI/UX, marketing and backend on 6+ web applications, turning business goals into technical plans and technical risk into decisions leaders can make. Trained and mentored 15+ engineers and interns.
+- Cut code-review turnaround by 30% by standardizing Git and GitHub workflows with structured pull requests and review gates.
+- Architected and shipped Trakkam, a multi-tenant GPS fleet SaaS, end to end (Next.js 16, NestJS, Prisma on MariaDB, Socket.io, Mapbox), with a 7-tier role-based access model that enforces tenant isolation over live location data, self-hosted for about 8× less than a managed setup.
+- Took Trakkam's production dependency vulnerabilities from 104 to 0 and secrets in git history from 15 to 0 by adding Semgrep, Trivy and Gitleaks to CI with a policy set from a measured baseline, then caught the deploy gate reading a cancelled scan as a pass and made it accept only an explicit success.
+- Fixed 11 security issues in one hardening pass after reviewing the codebase by hand, including an XSS sink in map popups, timing-unsafe CSRF checks and an account-takeover path in Google account linking. The same review found three development bypasses live in production that no scanner reported.
+- Restored Trakkam after an 8-hour outage in which a watchdog had restarted the API 96 times with no effect, by tracing it to MySQL reverse-DNS host authentication, then made every deploy reversible with a CI migration gate, pre-deploy backups and a one-command rollback.`,
         skills: [
           "Team Leadership",
-          "Cross-functional Collaboration",
-          "Git Workflows",
-          "FinTech",
-        ],
-        isExpanded: true,
-      },
-      {
-        id: "software-dev-2023",
-        title: "Software/Frontend Developer",
-        employmentPeriod: {
-          start: "05.2023",
-          end: "02.2024",
-        },
-        employmentType: "Full-time",
-        icon: "code",
-        description: `- Owned the frontend for Trakkam, a multi-tenant GPS fleet-management SaaS built in Next.js 16, TypeScript, Tailwind, and shadcn/ui, with interactive Mapbox geofencing, real-time WebSocket vehicle tracking, and a 7-tier role-based access model.
-- Extended into the full stack to ship Trakkam end to end (NestJS API, Prisma, self-hosted Traccar, NGINX, PM2, GitHub Actions CI/CD on a $5/month VPS), keeping operational cost roughly 8× lower than the equivalent managed setup.`,
-        skills: [
+          "Mentoring",
           "Next.js",
-          "TypeScript",
-          "React",
-          "Tailwind CSS",
-          "shadcn/ui",
-          "Mapbox GL",
-          "Socket.io",
           "NestJS",
           "Prisma",
           "MariaDB",
-          "Docker",
-          "NGINX",
-          "CI/CD",
-          "GitHub Actions",
+          "Socket.io",
+          "Mapbox GL",
+          "Multi-tenancy",
           "Role-Based Access Control",
+          "GitHub Actions",
+          "Semgrep",
+          "Trivy",
+          "Gitleaks",
+          "Secure Code Review",
+          "NGINX",
+          "Docker",
+          "Incident Response",
           "GPS/IoT",
-        ],
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-  {
-    id: "hng-internship",
-    companyName: "HNG Internship",
-    companyLogo: "https://hng.tech/favicon.ico",
-    companyWebsite: "https://hng.tech/",
-    positions: [
-      {
-        id: "frontend-intern-2025",
-        title: "Frontend Engineer Intern",
-        employmentPeriod: {
-          start: "01.2025",
-          end: "04.2025",
-        },
-        employmentType: "Internship",
-        icon: "code",
-        description: `- Operated in a fast-paced, collaborative environment with backend/frontend engineers, PMs, designers, QA, and leads; shipped features to tight timelines.
-- Co-built "Resolve" using Next.js + TypeScript: a voting platform for secure, free, and fair elections for individuals and organizations; implemented UI with Tailwind CSS and shadcn/ui components.
-- Built a text-processing UI in React + TypeScript using Chrome Origin Trials (Detector API, Summarization API, Translation API) to auto-detect language and translate text on the fly.
-- Practiced strong engineering hygiene: accessible, responsive UI; performance optimization; structured PRs and clean commit history; collaborative reviews with the cross-functional team.`,
-        skills: [
-          "Next.js",
-          "TypeScript",
-          "React",
-          "Tailwind CSS",
-          "shadcn/ui",
-          "Chrome Origin Trials",
-          "API Integration",
-          "Voting Platform",
-          "Text Processing",
-          "Accessibility",
-          "Performance Optimization",
-          "Git Workflows",
-          "Code Review",
-          "Agile",
-          "Cross-functional Collaboration",
         ],
         isExpanded: true,
       },
     ],
+    isCurrentEmployer: true,
   },
   {
     id: "nimble-capital",
@@ -151,15 +101,16 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "business",
-        description: `- Oversaw day-to-day technical operations, ensuring uptime and rapid bug resolution.
-- Automated customer data collation and contact workflows for efficient records management.
-- Executed targeted email/SMS outreach campaigns and collected feedback for iteration.`,
+        description: `- Kept the business's systems running day to day, resolving faults quickly and supporting staff across endpoints and internal tools.
+- Turned customer and operational data collected over WhatsApp into structured Excel and PDF reports for management, and automated the collation and contact workflows behind them.
+- Ran email and SMS campaigns and collected structured customer feedback for product iteration.`,
         skills: [
           "Technical Operations",
           "System Uptime",
           "Bug Resolution",
           "Process Automation",
           "Data Management",
+          "Reporting",
           "Email Marketing",
           "SMS Campaigns",
           "Customer Feedback",
