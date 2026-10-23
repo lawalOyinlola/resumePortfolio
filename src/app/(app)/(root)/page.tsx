@@ -1,10 +1,12 @@
 import { Awards } from "@/features/profile/components/awards";
 import { Certifications } from "@/features/profile/components/certifications";
 import { Experiences } from "@/features/profile/components/experiences";
+import { GitHubContributions } from "@/features/profile/components/github-contributions";
 import { Hello } from "@/features/profile/components/hello";
 import { Overview } from "@/features/profile/components/overview";
 import { ProfileHeader } from "@/features/profile/components/profile-header";
 import { Projects } from "@/features/profile/components/projects";
+import { Labs } from "@/features/profile/components/projects/labs";
 import { SocialLinks } from "@/features/profile/components/social-links";
 import { TechStack } from "@/features/profile/components/tech-stack";
 import { Testimonials } from "@/features/profile/components/testimonials";
@@ -17,8 +19,11 @@ export default function Page() {
       <ProfileHeader />
       <Separator />
 
-      <Overview />
       <SocialLinks />
+      <Overview />
+      <Separator />
+
+      <GitHubContributions />
       <Separator />
 
       <Hello />
@@ -28,6 +33,9 @@ export default function Page() {
       <Separator />
 
       <Experiences />
+      <Separator />
+
+      <Labs />
       <Separator />
 
       <Projects />
