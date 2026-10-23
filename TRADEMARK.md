@@ -4,10 +4,10 @@ The [MIT license](./LICENSE) covers the code and the writing in this repository.
 
 ## Brand assets
 
-The license grant excludes the items below, including the files in this repository that hold them:
+The MIT license covers the code in this repository, including the component source. It does not grant trademark, publicity, or other rights to use the brand assets and personal content below. A file that contains a listed asset stays MIT-licensed for its code. Remove or replace the listed assets before you publish a fork:
 
 - The names `Lawal Oyinlola`, `Oyinlola Lawal`, `lawaloyinlola`, and `lawaloyinlola.com`
-- The "LO" monogram mark and the "LAWAL" footer wordmark, in any form, including their SVG and component source
+- The "LO" monogram mark and the "LAWAL" footer wordmark, in any rendered form, including the SVG output and the branding data that draws them
 - My photos, avatars, and other likenesses
 - My voice recording (the name pronunciation audio)
 - My résumé PDFs and the personal data in `src/features/profile/data/`

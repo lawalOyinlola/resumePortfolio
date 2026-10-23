@@ -51,7 +51,7 @@ Read the [Development Guide](./DEVELOPMENT.md) for setup, scripts, and where the
 
 The code is licensed under the [MIT license](./LICENSE). The license keeps the copyright notice of the original template author and adds mine.
 
-My name, the "LO" mark, the "LAWAL" wordmark, my photos, my voice recording, and my résumé are not part of the license grant. The [trademark and brand policy](./TRADEMARK.md) explains what you can and cannot do with them.
+The license covers the code, including the components that draw my brand. It does not give you the right to use my name, the "LO" mark, the "LAWAL" wordmark, my photos, my voice recording, or my résumé. The [trademark and brand policy](./TRADEMARK.md) explains what you can and cannot do with them.
 
 You are welcome to fork this repository. Before you publish your site, remove all of my personal information and replace the branding. The [policy](./TRADEMARK.md#if-you-fork-this-repository) lists the files to change.
 
