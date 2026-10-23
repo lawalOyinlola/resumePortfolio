@@ -1,4 +1,5 @@
 import { USER } from "@/features/profile/data/user";
+import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
@@ -33,6 +34,14 @@ export const RESUME_DOWNLOADS = [
     fallbackHref:
       "https://drive.google.com/file/d/1sr6rTlNtIkjbuSgDN7Zte59Uv6Uof-ws/view?usp=sharing",
   },
+];
+
+// Header links. The labs, writing and full portfolio live on the main site;
+// this site links out to them rather than duplicating them.
+export const MAIN_NAV: NavItem[] = [
+  { title: "Labs", href: "https://lawaloyinlola.com/security/labs" },
+  { title: "Blog", href: "https://lawaloyinlola.com/blog" },
+  { title: "Portfolio", href: "https://lawaloyinlola.com" },
 ];
 
 export const GITHUB_USERNAME = "lawalOyinlola";

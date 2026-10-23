@@ -1,27 +1,25 @@
-import {
-  IBM_Plex_Mono as FontMono,
-  IBM_Plex_Sans as FontSans,
-  Pixelify_Sans as FontPixel,
-} from "next/font/google";
+import { Caveat as FontHandwritten, Geist as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 
+// Same type system as chanhdai.com: Geist for text, Paper Mono for mono, and
+// Caveat for handwritten notes.
 export const fontSans = FontSans({
-  weight: ["400", "500", "600"],
   display: "swap",
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-// Boxy pixel display font — used only for the oversized footer wordmark.
-export const fontPixel = FontPixel({
-  weight: ["400", "500", "600", "700"],
+// Paper Mono, SIL Open Font License 1.1 (see ../assets/fonts/PaperMono-OFL.txt).
+export const fontMono = localFont({
+  src: "../assets/fonts/PaperMono[wght].woff2",
   display: "swap",
-  subsets: ["latin"],
-  variable: "--font-pixel",
+  variable: "--font-mono",
 });
 
-export const fontMono = FontMono({
-  weight: ["400", "500", "600"],
+// Handwritten margin notes (e.g. "follow me" beside the social links).
+export const fontHandwritten = FontHandwritten({
+  weight: ["400", "500"],
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-handwritten",
 });

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./gradient-border-plugin.css";
+@import "./shimmer.css";
 
 @plugin "@tailwindcss/typography";
 
@@ -22,6 +23,7 @@
   --color-popover-border: var(--popover-border);
   --color-surface: var(--surface);
   --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-edge: var(--edge);
@@ -40,6 +42,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-handwritten: var(--font-handwritten);
 
   --shadow-popover: var(--shadow-popover);
 }
@@ -58,12 +61,16 @@
   @apply font-medium underline underline-offset-4;
 }
 
+@utility link-underline {
+  @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
+}
+
 @utility screen-line-before {
-  @apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-edge;
+  @apply relative before:absolute before:top-0 before:left-[-100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-edge;
 }
 
 @utility screen-line-after {
-  @apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-edge;
+  @apply relative after:absolute after:bottom-0 after:left-[-100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-edge;
 }
 
 @utility step {
@@ -118,6 +125,7 @@
 
   /* zinc-100 */
   --accent: oklch(0.967 0.001 286.375);
+  --accent-muted: color-mix(in oklab, var(--accent) 50%, transparent);
 
   /* zinc-900 */
   --accent-foreground: oklch(0.21 0.006 285.885);
@@ -211,6 +219,7 @@
 
   /* zinc-800 */
   --accent: oklch(0.274 0.006 286.033);
+  --accent-muted: color-mix(in oklab, var(--accent) 20%, transparent);
 
   /* zinc-50 */
   --accent-foreground: oklch(0.985 0 0);

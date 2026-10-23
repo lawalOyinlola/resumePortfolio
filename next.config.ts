@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Read by the footer's build date (src/lib/build-info.ts).
+  env: {
+    BUILD_TIMESTAMP: new Date().toISOString(),
+  },
   reactStrictMode: true,
+  // Don't advertise the framework in an X-Powered-By header.
+  poweredByHeader: false,
   devIndicators: false,
   images: {
     remotePatterns: [

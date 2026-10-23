@@ -5,6 +5,7 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { useIsScrolled } from "@/hooks/use-is-scrolled";
 import { cn } from "@/lib/utils";
 
 export function ScrollTop({
@@ -13,12 +14,10 @@ export function ScrollTop({
 }: React.ComponentProps<"button">) {
   const { scrollY } = useScroll();
 
-  const [visible, setVisible] = useState(false);
+  const visible = useIsScrolled() === true;
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down");
 
   useMotionValueEvent(scrollY, "change", (latestValue) => {
-    setVisible(latestValue >= 400);
-
     const prev = scrollY.getPrevious() ?? 0;
     const diff = latestValue - prev;
     setScrollDirection(diff > 0 ? "down" : "up");
@@ -32,9 +31,12 @@ export function ScrollTop({
         // Stacked above the "Download Résumé" FAB (both bottom-right).
         "[--bottom:5rem] sm:[--bottom:5.5rem] lg:[--bottom:6rem]",
         "fixed right-4 bottom-[calc(var(--bottom)+env(safe-area-inset-bottom,0))] z-50 lg:right-8",
-        "border-none transition-[background-color,opacity] duration-300",
-        "data-[scroll-direction=down]:opacity-30 data-[scroll-direction=up]:opacity-100 data-[visible=false]:opacity-0",
+        // Hidden also means invisible, so a faded-out button can't be clicked.
+        "transition-[background-color,opacity,visibility] duration-300",
+        "data-[scroll-direction=down]:opacity-30 data-[scroll-direction=up]:opacity-100 data-[visible=false]:invisible data-[visible=false]:opacity-0",
         "data-[scroll-direction=down]:hover:opacity-100",
+        // Flat secondary with a hairline inset edge (chanhdai.com style).
+        "rounded-lg border-none shadow-[inset_0_0_1px] shadow-foreground/20 dark:inset-shadow-none",
         className
       )}
       variant="secondary"
