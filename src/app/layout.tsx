@@ -11,7 +11,7 @@ import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { USER } from "@/features/profile/data/user";
-import { fontMono, fontPixel, fontSans } from "@/lib/fonts";
+import { fontHandwritten, fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { decodeEmail } from "@/utils/string";
 
@@ -63,6 +63,11 @@ function getPersonJsonLd(): WithContext<Person> {
       },
     ],
     knowsAbout: [
+      "Software Engineering",
+      "Application Security",
+      "DevSecOps",
+      "Penetration Testing",
+      "Security Monitoring (SIEM)",
       "Frontend Engineering",
       "React",
       "Next.js",
@@ -195,7 +200,7 @@ export default async function RootLayout({
       className={cn(
         fontSans.variable,
         fontMono.variable,
-        fontPixel.variable,
+        fontHandwritten.variable,
         isDark ? "dark" : "light"
       )}
       style={{ colorScheme: isDark ? "dark" : "light" }}
