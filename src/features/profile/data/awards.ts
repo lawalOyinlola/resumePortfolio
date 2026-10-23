@@ -3,14 +3,13 @@ import type { Award } from "../types/awards";
 export const AWARDS: Award[] = [
   {
     id: "hng-12-finalist-2025",
-    prize: "Finalist",
-    title: "HNG Internship 12 (2025) — Frontend Development Track",
+    prize: "Top 432 of 11,285",
+    title: "HNG Internship 12: Frontend track finalist",
     logoURL: "https://hng.tech/favicon.ico",
     date: "2025-04",
     grade: "Professional",
     highlights: [
-      "Became a finalist in the HNG Internship 12 (2025) Frontend Development track — recognized as an exceptional intern ready to excel in a professional setting.",
-      "Finishing as a finalist means placing in the top _*432 out of 11,285*_ participants.",
+      "Finished in the top _*432 of 11,285*_ participants through staged eliminations on deadline-driven builds.",
       "Projects: [Chat With Isime](https://chatwithisime.netlify.app) and [Resolve](https://resolve.vote/)",
     ],
     referenceLink:
@@ -18,14 +17,13 @@ export const AWARDS: Award[] = [
   },
   {
     id: "altschool-africa-graduation-2024",
-    prize: "Graduation",
-    title: "AltSchool Africa Internship Cohort 2024",
+    prize: "95/100",
+    title: "AltSchool Africa: Frontend Engineering diploma",
     logoURL: "/images/altschool-logo.webp",
     date: "2024-03",
     grade: "Professional",
     highlights: [
-      "52 weeks of learning across 120+ live sessions, with many assessments and hands-on projects.",
-      "Finished with a total of 95/100 across all progress-tracking categories.",
+      "Scored _*95/100*_ across all progress-tracking categories over 52 weeks and 120+ live sessions.",
       "Project: [ScissorsWeb](https://scissorsweb.netlify.app)",
     ],
     referenceLink:
