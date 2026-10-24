@@ -36,6 +36,13 @@ export type User = {
   website: string;
   /** Primary/current role shown on profile */
   jobTitle: string;
+  /** What the owner secures, listed in the footer. */
+  secures: string[];
+  /** Roles the owner is open to, and the work arrangements, for the footer. */
+  openTo: {
+    roles: string[];
+    arrangements: string;
+  };
   /** Work history entries */
   jobs: {
     title: string;

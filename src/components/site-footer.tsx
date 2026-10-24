@@ -74,9 +74,9 @@ export function SiteFooter() {
 
             <Field label="Secures">
               <ul className="flex flex-col gap-0.5">
-                <li>Products</li>
-                <li>Systems</li>
-                <li>People &amp; process</li>
+                {USER.secures.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </Field>
 
@@ -115,12 +115,11 @@ export function SiteFooter() {
                 is a ready-made lookup table for known vulnerabilities. */}
             <Field className="col-span-2" label="Open to">
               <ul className="flex flex-col gap-0.5">
-                <li>Application Security</li>
-                <li>DevSecOps</li>
-                <li>Frontend Engineering</li>
-                <li>Software Engineering</li>
+                {USER.openTo.roles.map((role) => (
+                  <li key={role}>{role}</li>
+                ))}
                 <li className="text-muted-foreground">
-                  Remote, hybrid or relocation
+                  {USER.openTo.arrangements}
                 </li>
               </ul>
             </Field>

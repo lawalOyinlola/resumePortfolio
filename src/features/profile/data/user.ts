@@ -31,6 +31,16 @@ export const USER: User = {
   email: "b3lpbmxvbGFsYXdhbDE3MDVAZ21haWwuY29t", // oyinlolalawal1705@gmail.com in base64
   website: "https://lawaloyinlola.com",
   jobTitle: "Software Engineer · Application Security",
+  secures: ["Products", "Systems", "People & process"],
+  openTo: {
+    roles: [
+      "Application Security",
+      "DevSecOps",
+      "Frontend Engineering",
+      "Software Engineering",
+    ],
+    arrangements: "Remote, hybrid or relocation",
+  },
   jobs: [
     {
       title: "Software/Frontend Developer",
