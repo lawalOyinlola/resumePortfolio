@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowUpRightIcon,
   AwardIcon,
   BriefcaseBusinessIcon,
   CircleCheckBigIcon,
@@ -41,7 +42,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
-import { RESUME_DOWNLOADS, UTM_PARAMS } from "@/config/site";
+import { MAIN_NAV, RESUME_DOWNLOADS, UTM_PARAMS } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { useClickSound } from "@/hooks/soundcn/use-click-sound";
 import { addQueryParams } from "@/utils/url";
@@ -174,6 +175,15 @@ export function CommandMenu() {
       run: () => navigate(`#${section.id}`),
     }));
 
+    // The header hides these links on small screens; this keeps them reachable.
+    const mainNav: CommandLinkItem[] = MAIN_NAV.map(({ title, href }) => ({
+      id: `main-nav-${title}`,
+      title,
+      kind: "link",
+      icon: <ArrowUpRightIcon />,
+      run: () => openExternal(addQueryParams(href, UTM_PARAMS)),
+    }));
+
     const connect: CommandLinkItem[] = SOCIAL_LINKS.map((link) => ({
       id: `social-${link.title}`,
       title: link.title,
@@ -278,6 +288,7 @@ export function CommandMenu() {
     return {
       Menu: menu,
       "Go to": portfolio,
+      "Main site": mainNav,
       Connect: connect,
       Résumé: resume,
       "Brand Assets": brand,
