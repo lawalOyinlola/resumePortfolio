@@ -54,7 +54,7 @@ export const USER: User = {
   ],
   about: `
 
-I'm Lawal Oyinlola, a software engineer who builds web products and then tests them the way an attacker would. For ${YEARS_OF_EXPERIENCE}+ years I've led small teams shipping FinTech, GPS/IoT, and AI products in React, Next.js, and TypeScript, taking them full-stack (NestJS, Prisma, NGINX, Docker) when they need to ship end to end.
+I'm Lawal Oyinlola, a software engineer working in application security: I build web products, then test them the way an attacker would. For ${YEARS_OF_EXPERIENCE}+ years I've led small teams shipping FinTech, GPS/IoT, and AI products in React, Next.js, and TypeScript, taking them full-stack (NestJS, Prisma, NGINX, Docker) when they need to ship end to end.
 
 I architected Trakkam, a multi-tenant GPS fleet SaaS that runs for about 8× less than managed hosting, and took its production dependency vulnerabilities from 104 to 0. On SafulPay, I raised Lighthouse from 68 to 100. I publish my own pentest and detection labs at [lawaloyinlola.com](https://lawaloyinlola.com/security). Let's build something people can depend on.
 
