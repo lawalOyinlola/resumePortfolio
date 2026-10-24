@@ -75,7 +75,7 @@ The site content lives in `src/features/profile/data/`:
 | `user.ts`           | Name, bio, contact details, current roles |
 | `experiences.ts`    | Work history                              |
 | `volunteering.ts`   | Volunteer roles                           |
-| `projects.ts`       | Projects                                  |
+| `projects.ts`       | Security labs and projects                |
 | `tech-stack.ts`     | Tools, grouped by category                |
 | `awards.ts`         | Awards                                    |
 | `certifications.ts` | Certifications                            |

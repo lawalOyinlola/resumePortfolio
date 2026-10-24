@@ -7,6 +7,7 @@ const content = `# ${USER.displayName}
 
 - [About](${SITE_INFO.url}/about.md): A quick intro to me, my tech stack, and how to connect.
 - [Experience](${SITE_INFO.url}/experience.md): Highlights from my career and the roles I've taken on.
+- [Security Labs](${SITE_INFO.url}/labs.md): Hands-on application security labs, each written as context, action, result and lesson.
 - [Projects](${SITE_INFO.url}/projects.md): Selected projects that show my skills and range.
 - [Awards](${SITE_INFO.url}/awards.md): My key awards and honors.
 - [Certifications](${SITE_INFO.url}/certifications.md): Certifications and credentials I've earned.

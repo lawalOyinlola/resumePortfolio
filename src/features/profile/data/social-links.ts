@@ -8,6 +8,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://lawaloyinlola.com",
   },
   {
+    icon: "/images/link-icons/security.svg",
+    title: "Security",
+    description: "lawaloyinlola.com/security",
+    href: "https://lawaloyinlola.com/security",
+  },
+  {
     icon: "/images/link-icons/linkedin.svg",
     title: "LinkedIn",
     description: "Lawal Oyinlola",
@@ -20,10 +26,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://github.com/lawalOyinlola/",
   },
   {
-    icon: "/images/link-icons/x.svg",
-    title: "X (Formerly Twitter)",
-    description: "@HoneyzRich",
-    href: "https://x.com/honeyzrich",
+    icon: "/images/link-icons/github.svg",
+    title: "Security Case Studies (GitHub)",
+    description: "lawalOyinlola/cybersecurity-portfolio",
+    href: "https://github.com/lawalOyinlola/cybersecurity-portfolio",
   },
   {
     icon: "/images/link-icons/whatsapp.svg",

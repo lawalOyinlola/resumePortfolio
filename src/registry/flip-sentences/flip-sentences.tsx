@@ -1,83 +1,78 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import type { Variants } from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
+// Same motion as chanhdai.com's TextFlip: each sentence drops in from above
+// with a slight blur and leaves downward.
+const variants: Variants = {
+  initial: { y: "-20%", opacity: 0, filter: "blur(1px)" },
+  animate: { y: "0%", opacity: 1, filter: "blur(0px)" },
+  exit: {
+    y: "40%",
+    opacity: 0,
+    filter: "blur(1px)",
+    transition: { ease: "easeOut" },
+  },
+};
+
 export function FlipSentences({
   className,
   sentences,
+  interval = 3,
 }: {
   className?: string;
   sentences: string[];
+  /** Seconds between flips. */
+  interval?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+  const [isPageVisible, setIsPageVisible] = useState(true);
   const [currentSentence, setCurrentSentence] = useState(0);
 
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  // Pause while the tab is hidden, like upstream's usePageInView.
+  useEffect(() => {
+    const onChange = () =>
+      setIsPageVisible(document.visibilityState === "visible");
+    document.addEventListener("visibilitychange", onChange);
+    return () => document.removeEventListener("visibilitychange", onChange);
+  }, []);
 
-  const startAnimation = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentSentence((prev) => (prev + 1) % sentences.length);
-    }, 4000);
-  };
+  const play = isInView && isPageVisible;
 
   useEffect(() => {
-    startAnimation();
+    if (!play) return;
 
-    const abortController = new AbortController();
-    const { signal } = abortController;
+    const timer = setInterval(() => {
+      setCurrentSentence((prev) => (prev + 1) % sentences.length);
+    }, interval * 1000);
 
-    document.addEventListener(
-      "visibilitychange",
-      () => {
-        if (document.visibilityState !== "visible" && intervalRef.current) {
-          clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
-          intervalRef.current = null;
-        } else if (document.visibilityState === "visible") {
-          setCurrentSentence((prev) => (prev + 1) % sentences.length); // Show the next sentence immediately
-          startAnimation(); // Restart the interval when the tab becomes visible
-        }
-      },
-      { signal }
-    );
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-      abortController.abort();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sentences]);
+    return () => clearInterval(timer);
+  }, [play, interval, sentences.length]);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.p
-        key={`current-sentence-${currentSentence}`}
-        className={cn(
-          "font-mono text-sm text-balance text-muted-foreground select-none",
-          className
-        )}
-        initial={{
-          y: 12,
-          opacity: 0,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        exit={{
-          y: -12,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
-      >
-        {sentences[currentSentence]}
-      </motion.p>
-    </AnimatePresence>
+    <div ref={ref} className={className}>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.p
+          key={currentSentence}
+          // `shimmer-once` replays the glow each time a new sentence mounts.
+          className={cn(
+            "inline-block font-mono text-sm text-balance text-muted-foreground select-none",
+            "shimmer shimmer-duration-1500 shimmer-once not-dark:shimmer-color-foreground"
+          )}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.3 }}
+          variants={variants}
+        >
+          {sentences[currentSentence]}
+        </motion.p>
+      </AnimatePresence>
+    </div>
   );
 }

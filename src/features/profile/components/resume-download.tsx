@@ -57,13 +57,15 @@ export function ResumeDownload() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          size="lg"
+          variant="secondary"
           aria-label="Download résumé"
           className={cn(
-            "fixed right-4 z-50 gap-2 lg:right-8",
+            "fixed right-4 z-50 h-9 gap-2 rounded-lg pr-3 pl-2.5 lg:right-8",
             "bottom-[calc(1.4rem+env(safe-area-inset-bottom,0))] lg:bottom-8",
-            // Make the primary action stand out: elevated shadow + crisp ring.
-            "shadow-xl ring-1 ring-black/10 dark:ring-white/15"
+            // Same flat secondary + hairline edge as the other buttons, with a
+            // soft drop shadow and blur so it stays legible over content.
+            "bg-secondary/90 ring-1 ring-foreground/10 backdrop-blur-sm dark:inset-shadow-none",
+            "shadow-lg shadow-black/5 dark:shadow-black/40"
           )}
         >
           <DownloadIcon className="size-4" />

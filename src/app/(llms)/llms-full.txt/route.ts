@@ -1,7 +1,7 @@
 import { AWARDS } from "@/features/profile/data/awards";
 import { CERTIFICATIONS } from "@/features/profile/data/certifications";
 import { EXPERIENCES } from "@/features/profile/data/experiences";
-import { PROJECTS } from "@/features/profile/data/projects";
+import { LABS, PROJECTS } from "@/features/profile/data/projects";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { TECH_STACK } from "@/features/profile/data/tech-stack";
 import { USER } from "@/features/profile/data/user";
@@ -39,6 +39,15 @@ ${EXPERIENCES.map((item) =>
 ).join("\n\n")}
 `;
 
+const labsText = `## Security Labs
+
+${LABS.map((item) => {
+  const skills = `\n\nSkills: ${item.skills.join(", ")}`;
+  const description = item.description ? `\n\n${item.description.trim()}` : "";
+  return `### ${item.title}\n\nLab URL: ${item.link}${skills}${description}`;
+}).join("\n\n")}
+`;
+
 const projectsText = `## Projects
 
 ${PROJECTS.map((item) => {
@@ -57,7 +66,7 @@ const certificationsText = `## Certifications
 
 ${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}`;
 
-const content = `<SYSTEM>This document contains detailed information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, projects, achievements, and certifications, formatted for consumption by Large Language Models (LLMs) to provide accurate, up-to-date information about ${USER.displayName}'s background, skills, and expertise as a ${USER.jobTitle}.</SYSTEM>
+const content = `<SYSTEM>This document contains detailed information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, security labs, projects, achievements, and certifications, formatted for consumption by Large Language Models (LLMs) to provide accurate, up-to-date information about ${USER.displayName}'s background, skills, and expertise as a ${USER.jobTitle}.</SYSTEM>
 
 # ${USER.displayName}
 
@@ -65,6 +74,7 @@ const content = `<SYSTEM>This document contains detailed information about ${USE
 
 ${aboutText}
 ${experienceText}
+${labsText}
 ${projectsText}
 ${awardsText}
 ${certificationsText}`;

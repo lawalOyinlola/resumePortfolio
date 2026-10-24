@@ -2,7 +2,7 @@ import type { TechStack } from "../types/tech-stack";
 
 const si = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 const ix = (set: string, name: string) =>
-  `https://api.iconify.design/${set}:${name}.svg`;
+  `https://api.iconify.design/${set}/${name}.svg`;
 
 // Grouped into a small, scannable set of categories (chanhdai-style, max 6).
 // The `category` of each item drives the numbered rows in the Stack section,
@@ -28,10 +28,102 @@ export const TECH_STACK: TechStack[] = [
     category: "Language",
   },
   {
+    title: "Bash",
+    href: "https://www.gnu.org/software/bash/",
+    icon: si("gnubash"),
+    category: "Language",
+  },
+  {
     title: "PHP",
     href: "https://www.php.net/",
     icon: si("php"),
     category: "Language",
+  },
+
+  // ── Security ──────────────────────────────────────────────────────────
+  {
+    title: "ModSecurity",
+    href: "https://modsecurity.org/",
+    icon: ix("lucide", "shield-half"),
+    category: "Security",
+  },
+  {
+    title: "OWASP CRS",
+    href: "https://coreruleset.org/",
+    icon: si("owasp"),
+    category: "Security",
+  },
+  {
+    title: "Burp Suite",
+    href: "https://portswigger.net/burp",
+    icon: si("burpsuite"),
+    category: "Security",
+  },
+  {
+    title: "gitleaks",
+    href: "https://gitleaks.io/",
+    icon: ix("lucide", "file-key"),
+    category: "Security",
+  },
+  {
+    title: "Dependabot",
+    href: "https://docs.github.com/en/code-security/dependabot",
+    icon: si("dependabot"),
+    category: "Security",
+  },
+  {
+    title: "Kali Linux",
+    href: "https://www.kali.org/",
+    icon: si("kalilinux"),
+    category: "Security",
+  },
+  {
+    title: "nmap",
+    href: "https://nmap.org/",
+    icon: ix("file-icons", "nmap"),
+    category: "Security",
+  },
+  {
+    title: "Metasploit",
+    href: "https://www.metasploit.com/",
+    icon: si("metasploit"),
+    category: "Security",
+  },
+  {
+    title: "OpenVAS/GVM",
+    href: "https://www.openvas.org/",
+    icon: ix("selfhst", "openvas"),
+    category: "Security",
+  },
+  {
+    title: "Hydra",
+    href: "https://github.com/vanhauser-thc/thc-hydra",
+    icon: ix("lucide", "key-round"),
+    category: "Security",
+  },
+  {
+    title: "John the Ripper",
+    href: "https://www.openwall.com/john/",
+    icon: ix("lucide", "hash"),
+    category: "Security",
+  },
+  {
+    title: "Wazuh",
+    href: "https://wazuh.com/",
+    icon: ix("selfhst", "wazuh"),
+    category: "Security",
+  },
+  {
+    title: "Suricata",
+    href: "https://suricata.io/",
+    icon: ix("lucide", "radar"),
+    category: "Security",
+  },
+  {
+    title: "VirusTotal",
+    href: "https://www.virustotal.com/",
+    icon: si("virustotal"),
+    category: "Security",
   },
 
   // ── Frontend ──────────────────────────────────────────────────────────
@@ -332,7 +424,7 @@ export const TECH_STACK: TechStack[] = [
   {
     title: "FlutterFlow",
     href: "https://www.flutterflow.io/",
-    icon: "https://docs.flutterflow.io/logos/logoMark_outlinePrimary_transparent.svg",
+    icon: "/icons/stack/flutterflow.svg",
     category: "Services & Cloud",
   },
   {

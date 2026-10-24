@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { TECH_STACK } from "../data/tech-stack";
 import type { TechStack as TechStackType } from "../types/tech-stack";
 import { Panel, PanelHeader, PanelTitle } from "./panel";
@@ -59,14 +57,21 @@ export function TechStack() {
                       rel="noopener noreferrer"
                       className="flex h-(--badge-height) items-center justify-center gap-1.5 rounded-md bg-zinc-50/80 px-1.75 font-mono text-xs text-foreground inset-ring-1 inset-ring-border transition-colors hover:bg-muted dark:bg-zinc-900/80"
                     >
-                      <Image
-                        src={item.icon}
-                        alt=""
-                        width={14}
-                        height={14}
-                        unoptimized
-                        className="pointer-events-none size-3.5 shrink-0 object-contain"
-                        loading="lazy"
+                      {/* Monochrome, like chanhdai.com: the logo is a mask
+                          filled with the text color, so black logos stay
+                          visible in dark mode and light ones in light mode. */}
+                      <span
+                        className="pointer-events-none size-3.5 shrink-0 bg-muted-foreground"
+                        style={{
+                          maskImage: `url(${item.icon})`,
+                          WebkitMaskImage: `url(${item.icon})`,
+                          maskSize: "contain",
+                          WebkitMaskSize: "contain",
+                          maskRepeat: "no-repeat",
+                          WebkitMaskRepeat: "no-repeat",
+                          maskPosition: "center",
+                          WebkitMaskPosition: "center",
+                        }}
                         aria-hidden
                       />
                       {item.title}
