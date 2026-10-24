@@ -38,12 +38,16 @@ export function useSound(
 
   useEffect(() => {
     let cancelled = false;
-    decodeAudioData(sound.dataUri).then((buffer) => {
-      if (!cancelled) {
-        bufferRef.current = buffer;
-        setDuration(buffer.duration);
-      }
-    });
+    decodeAudioData(sound.dataUri)
+      .then((buffer) => {
+        if (!cancelled) {
+          bufferRef.current = buffer;
+          setDuration(buffer.duration);
+        }
+      })
+      .catch((error: unknown) => {
+        console.error("Failed to decode sound asset", error);
+      });
     return () => {
       cancelled = true;
     };
@@ -51,6 +55,8 @@ export function useSound(
 
   const stop = useCallback(() => {
     if (sourceRef.current) {
+      // Detach first: onEnd is for natural completion, not an explicit stop.
+      sourceRef.current.onended = null;
       try {
         sourceRef.current.stop();
       } catch {
@@ -114,6 +120,7 @@ export function useSound(
   useEffect(() => {
     return () => {
       if (sourceRef.current) {
+        sourceRef.current.onended = null;
         try {
           sourceRef.current.stop();
         } catch {
