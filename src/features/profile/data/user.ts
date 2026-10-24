@@ -16,19 +16,31 @@ export const USER: User = {
   username: "yero",
   gender: "male",
   pronouns: "he/him",
-  bio: "Frontend Engineer building accessible, high-performance web products in React, Next.js, and TypeScript. Full-stack and infrastructure range when the product needs it.",
+  bio: "Software engineer building secure, reliable web apps: frontend craft, full-stack delivery, application security and DevSecOps.",
   flipSentences: [
-    "Frontend Engineer · Full-Stack Capable",
+    "Software Engineer · Application Security",
+    "Secure products, systems, people & process",
     "React, Next.js, TypeScript",
     "Accessibility & Performance focused",
     "I build products people depend on",
     "From Figma to Prisma to NGINX",
+    "I break what I build",
   ],
   address: "Lagos, Nigeria | Freetown, Sierra Leone",
   phoneNumber: "KzIzNDgxNjM5OTI2Mjg=", // +2348163992628 in base64
   email: "b3lpbmxvbGFsYXdhbDE3MDVAZ21haWwuY29t", // oyinlolalawal1705@gmail.com in base64
   website: "https://lawaloyinlola.com",
-  jobTitle: "Frontend Engineer",
+  jobTitle: "Software Engineer · Application Security",
+  secures: ["Products", "Systems", "People & process"],
+  openTo: {
+    roles: [
+      "Application Security",
+      "DevSecOps",
+      "Frontend Engineering",
+      "Software Engineering",
+    ],
+    arrangements: "Remote, hybrid or relocation",
+  },
   jobs: [
     {
       title: "Software/Frontend Developer",
@@ -42,16 +54,14 @@ export const USER: User = {
   ],
   about: `
 
-I'm Lawal Oyinlola, a Frontend Engineer building fast, accessible web products across FinTech, GPS/IoT, and AI — mostly in React, Next.js, and TypeScript.
+I'm Lawal Oyinlola, a software engineer who builds web products and then tests them the way an attacker would. For ${YEARS_OF_EXPERIENCE}+ years I've led small teams shipping FinTech, GPS/IoT, and AI products in React, Next.js, and TypeScript, taking them full-stack (NestJS, Prisma, NGINX, Docker) when they need to ship end to end.
 
-Over ${YEARS_OF_EXPERIENCE}+ years I've led small teams and shipped real products. I owned the frontend for Trakkam, a multi-tenant GPS fleet SaaS, and took it full-stack on a $5/month VPS — roughly 8× cheaper than managed. On SafulPay, I re-platformed to Next.js and raised Lighthouse from 68 to a perfect 100.
-
-Frontend-first, but I extend into backend, real-time, and self-hosted infrastructure (NestJS, Prisma, WebSockets, NGINX, Docker) when a product needs to ship end to end.
-
-Let's build something people can depend on.
+I architected Trakkam, a multi-tenant GPS fleet SaaS that runs for about 8× less than managed hosting, and took its production dependency vulnerabilities from 104 to 0. On SafulPay, I raised Lighthouse from 68 to 100. I publish my own pentest and detection labs at [lawaloyinlola.com](https://lawaloyinlola.com/security). Let's build something people can depend on.
 
   `,
-  avatar: "/images/lawal_oyinlola-profile_picture.webp",
+  avatar: "/images/lawal_oyinlola-avatar.webp",
+  // Light-mode line art of the same headshot, aligned to the same crop.
+  avatarSketch: "/images/lawal_oyinlola-avatar-line.webp",
   // To enable the interactive "lights" avatar, add 4 square WebP variants of
   // the SAME crop (so they cross-fade as a lighting change) and uncomment:
   // avatarVariants: {
@@ -93,6 +103,18 @@ Let's build something people can depend on.
     "frontend developer in africa",
     "frontend engineer in africa",
     "full-stack engineer",
+    "application security",
+    "appsec",
+    "devsecops",
+    "application security engineer",
+    "software engineer application security",
+    "penetration testing lab",
+    "owasp",
+    "modsecurity",
+    "wazuh",
+    "siem",
+    "supply-chain security",
+    "ci/cd security",
     "full-stack developer",
     "software engineer",
     "react developer",

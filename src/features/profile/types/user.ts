@@ -36,6 +36,13 @@ export type User = {
   website: string;
   /** Primary/current role shown on profile */
   jobTitle: string;
+  /** What the owner secures, listed in the footer. */
+  secures: string[];
+  /** Roles the owner is open to, and the work arrangements, for the footer. */
+  openTo: {
+    roles: string[];
+    arrangements: string;
+  };
   /** Work history entries */
   jobs: {
     title: string;
@@ -47,6 +54,11 @@ export type User = {
   about: string;
   /** Public URL to avatar image */
   avatar: string;
+  /**
+   * Optional sketch-style avatar shown in light mode. `avatar` is shown in
+   * dark mode. Use the same crop as `avatar`.
+   */
+  avatarSketch?: string;
   /**
    * Optional 4-variant interactive avatar (lights on/off in light & dark).
    * When omitted, the header falls back to the single `avatar` image.

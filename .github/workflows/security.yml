@@ -29,6 +29,11 @@ jobs:
       # `--no-merges --first-parent`, so commits that arrive through the second
       # parent of a merge are never scanned. The history is small, so every run
       # scans all of it, every parent included.
+      #
+      # --log-opts keeps gitleaks' default scope (--full-history --all
+      # --diff-filter=tuxdb) and adds --diff-merges=separate. Without it,
+      # `git log -p` prints no patch for a merge commit, so a secret added only
+      # while resolving a conflict is never scanned.
       - name: Install gitleaks
         env:
           GITLEAKS_VERSION: 8.30.1
@@ -40,7 +45,7 @@ jobs:
           tar -xzf gitleaks.tar.gz gitleaks
 
       - name: Scan full history
-        run: ./gitleaks git --redact --verbose --exit-code 1 .
+        run: ./gitleaks git --redact --verbose --exit-code 1 --log-opts="--full-history --all --diff-filter=tuxdb --diff-merges=separate" .
 
   codeql:
     name: CodeQL

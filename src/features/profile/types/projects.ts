@@ -22,6 +22,8 @@ export type Project = {
   description?: string;
   /** Logo image URL (absolute or path under /public). */
   logo?: string;
+  /** "lab" for security labs (linked as "View lab"); defaults to "project". */
+  kind?: "lab" | "project";
   /** Whether the project card is expanded by default in the UI. */
   isExpanded?: boolean;
 };

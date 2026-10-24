@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -31,17 +32,58 @@ export function Nav({
 
 export function NavItem({
   active,
+  href,
+  children,
+  // next/link-only props: forwarded to Link, never to a plain anchor.
+  prefetch,
+  replace,
+  scroll,
+  shallow,
+  locale,
+  passHref,
+  legacyBehavior,
+  onNavigate,
   ...props
 }: React.ComponentProps<typeof Link> & {
   active?: boolean;
 }) {
+  const className = cn(
+    "inline-flex items-center gap-0.5 font-sans text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground",
+    active && "text-foreground"
+  );
+
+  // Links to other sites open in a new tab and say so.
+  if (typeof href === "string" && /^https?:\/\//.test(href)) {
+    return (
+      <a
+        {...props}
+        href={href}
+        target="_blank"
+        rel="noopener"
+        className={className}
+      >
+        {children}
+        <ArrowUpRightIcon className="size-3.5 opacity-60" aria-hidden />
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    );
+  }
+
   return (
     <Link
-      className={cn(
-        "font-mono text-sm font-medium text-muted-foreground transition-all duration-300",
-        active && "text-foreground"
-      )}
+      href={href}
+      className={className}
+      prefetch={prefetch}
+      replace={replace}
+      scroll={scroll}
+      shallow={shallow}
+      locale={locale}
+      passHref={passHref}
+      legacyBehavior={legacyBehavior}
+      onNavigate={onNavigate}
       {...props}
-    />
+    >
+      {children}
+    </Link>
   );
 }

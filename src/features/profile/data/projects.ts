@@ -1,10 +1,152 @@
 import type { Project } from "../types/projects";
 
+/** Security labs, shown in their own section above the projects. */
+export const LABS: Project[] = [
+  {
+    id: "cicd-security-pipeline",
+    kind: "lab",
+    title: "CI/CD Security Pipeline",
+    period: { start: "10.2026", end: "10.2026" },
+    link: "https://lawaloyinlola.com/security/labs/cicd-security-pipeline",
+    logo: "/icons/lawal-logo-tile.svg",
+    image: "/images/projects/cicd-security-pipeline.webp",
+    skills: [
+      "GitHub Actions",
+      "Semgrep",
+      "Trivy",
+      "Gitleaks",
+      "SAST",
+      "Supply-chain Security",
+      "DevSecOps",
+    ],
+    description: `**Context:** a live multi-tenant SaaS product already shipped through GitHub Actions. It needed security checks that would not disturb its build or deploy.
+
+**Action:** added Semgrep SAST, Trivy dependency and container scanning, and Gitleaks full-history secrets scanning to GitHub Actions, set the blocking policy from a measured baseline, and triaged every finding to a fix, a dated acceptance or a reasoned false positive.
+
+**Result:** production dependency vulnerabilities 104 → 0, secrets in git history 15 → 0, SAST findings 8 → 1 documented false positive.
+
+**Lesson:** the most serious finding was in my own pipeline. The deploy gate read a cancelled scan as a pass, so it now accepts only an explicit success.
+
+- Case study: https://github.com/lawalOyinlola/cybersecurity-portfolio`,
+    isExpanded: true,
+  },
+  {
+    id: "waf-runtime-defence",
+    kind: "lab",
+    title: "WAF Runtime Defence",
+    period: { start: "10.2026", end: "10.2026" },
+    link: "https://lawaloyinlola.com/security/labs/waf-runtime-defence",
+    logo: "/icons/lawal-logo-tile.svg",
+    image: "/images/projects/waf-runtime-defence.webp",
+    skills: [
+      "ModSecurity",
+      "OWASP CRS",
+      "NGINX",
+      "Docker",
+      "Virtual Patching",
+      "AppSec",
+    ],
+    description: `**Context:** a WAF is often treated as the fix. I wanted to measure what it actually stops.
+
+**Action:** put ModSecurity and the OWASP Core Rule Set in front of OWASP Juice Shop and measured it against a no-WAF control across eight phases, then ran 26 payloads against a production app.
+
+**Result:** 14 of 20 attacks stopped with 0 of 9 legitimate requests blocked at tuned paranoia level 1, 15 with a virtual patch. On production, 12 of 26 payloads blocked.
+
+**Lesson:** the tenant-isolation (BOLA) attack passed the WAF and was stopped by the app. A WAF buys response time; access control has to live in the code.`,
+    isExpanded: true,
+  },
+  {
+    id: "appsec-protocols",
+    title: "appsec-protocols",
+    period: { start: "08.2026" },
+    link: "https://github.com/lawalOyinlola/appsec-protocols",
+    logo: "/icons/lawal-logo-tile.svg",
+    skills: [
+      "AppSec",
+      "OWASP ASVS",
+      "AI Coding Agents",
+      "Bash",
+      "GitHub Actions",
+      "Open Source",
+    ],
+    description: `**Context:** security checklists tell you what should be true, not how to check it, so items get ticked without being tested.
+
+**Action:** wrote 82 security, legal and project-kickoff controls as agent skills that load before an AI coding agent writes auth, uploads, payments or deploy config. Each control has exactly one executable check, enforced in CI and mapped to OWASP ASVS 5.0.
+
+**Result:** 82 controls, 82 verification steps, and a CI check that fails any control without one.
+
+**Lesson:** a control you cannot run is a claim. "Unverified" is a reportable state, not a pass.`,
+    isExpanded: true,
+  },
+  {
+    id: "apple-silicon-pentest-lab",
+    kind: "lab",
+    title: "Apple Silicon Pentest Lab",
+    period: { start: "10.2026", end: "10.2026" },
+    link: "https://lawaloyinlola.com/security/labs/building-a-pentest-lab-on-apple-silicon",
+    logo: "/icons/lawal-logo-tile.svg",
+    image: "/images/projects/pentest-lab.webp",
+    skills: [
+      "Kali Linux",
+      "nmap",
+      "OpenVAS/GVM",
+      "Metasploit",
+      "Hydra",
+      "John the Ripper",
+      "Penetration Testing",
+    ],
+    description: `**Context:** most pentest lab guides assume an x86 machine. Mine had to run on an Apple Silicon Mac.
+
+**Action:** a permissioned test of Metasploitable 2 in my own lab, from recon and vulnerability scanning to two independent paths to root (CVE-2011-2523 and CVE-2019-14287), post-exploitation, and a written, executive-readable report.
+
+**Result:** seven findings, each paired with the defensive control that closes it.
+
+**Lesson:** all seven traced to one root cause, an unsupported and unpatched operating system. Patching beats chasing findings one by one.
+
+- Report (PDF): https://lawaloyinlola.com/files/apple-silicon-pentest-lab-report.pdf`,
+  },
+  {
+    id: "detection-siem-lab",
+    kind: "lab",
+    title: "Detection & SIEM Lab",
+    period: { start: "10.2026", end: "10.2026" },
+    link: "https://lawaloyinlola.com/security/labs/detection-siem-lab",
+    logo: "/icons/lawal-logo-tile.svg",
+    image: "/images/projects/detection-siem-lab.webp",
+    skills: ["Wazuh", "Suricata", "VirusTotal", "SIEM", "File Integrity"],
+    description: `**Context:** the defensive mirror of the pentest lab. Can I see my own attacks?
+
+**Action:** built a Wazuh SIEM with Suricata network detection and VirusTotal file-integrity monitoring with automated response, then ran the pentest attacks against it.
+
+**Result:** the full detection chain fired, and the response deletes a flagged file within seconds.
+
+**Lesson:** at first the response produced convincing alerts for a full day while deleting nothing. I rewrote it with dependency checks, path confinement, verification and an audit trail. Check the effect, not the alert.`,
+  },
+  {
+    id: "phishing-bridge-lab",
+    kind: "lab",
+    title: "Phishing Bridge Lab",
+    period: { start: "10.2026", end: "10.2026" },
+    link: "https://lawaloyinlola.com/security/labs/phishing-simulation-lab",
+    logo: "/icons/lawal-logo-tile.svg",
+    image: "/images/projects/phishing-bridge-lab.webp",
+    skills: ["GoPhish", "Mailpit", "Wazuh", "MITRE ATT&CK", "Purple Team"],
+    description: `**Context:** a purple-team exercise: run one phishing click end to end and watch it from both seats.
+
+**Action:** ran a GoPhish campaign with Mailpit inside the lab only (no real mail, no real credentials), clicked it from a second VM, and wrote a custom Wazuh decoder and rules mapped to MITRE ATT&CK T1566.
+
+**Result:** the open, the visit and the submission each raise their own alert.
+
+**Lesson:** no built-in decoder understood the log, and a detection resting on an undecoded log fails silently. I proved each rule against a known log line before trusting the dashboard.`,
+  },
+];
+
+/** Products and sites I built or contributed to. */
 export const PROJECTS: Project[] = [
   {
     id: "trakkam",
     title: "Trakkam — Multi-Tenant GPS Fleet-Management SaaS",
-    period: { start: "01.2025" },
+    period: { start: "03.2026" },
     link: "https://trakkam.com/",
     logo: "https://trakkam.com/favicon.ico?favicon.65c14c5d.ico",
     image: "/images/projects/trakkam.png",
@@ -22,13 +164,15 @@ export const PROJECTS: Project[] = [
       "Self-hosted",
     ],
     description: `A multi-tenant GPS fleet-management SaaS I designed and shipped end to end. Real-time vehicle tracking over WebSockets, interactive Mapbox geofencing, trip history, an alerts inbox, and a 7-tier role-based access model.
-Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD), running roughly 8× cheaper than the equivalent managed setup.`,
+Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD), running roughly 8× cheaper than the equivalent managed setup.
+
+Security is part of the build: tenant isolation on every query, signed webhooks, and a CI pipeline (SAST, dependency, container and secrets scanning) that gates every deploy.`,
     isExpanded: true,
   },
   {
     id: "marketgist",
     title: "MarketGist — Real-Time Stock Market Dashboard",
-    period: { start: "09.2025" },
+    period: { start: "09.2025", end: "02.2026" },
     link: "https://marketgist.vercel.app/",
     logo: "https://marketgist.vercel.app/favicon.ico?favicon.1aeb95f0.ico",
     image: "/images/projects/marketgist.png",
@@ -80,7 +224,7 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
       "Automation",
     ],
     description:
-      "An AI-powered LinkedIn assistant that automates content generation, networking outreach, and engagement — helping professionals grow their presence without the manual grind.",
+      "I was invited onto the LIA team as a contributor. LIA is an AI LinkedIn assistant shipped as a Chrome extension side panel and a Next.js site. I revamped the extension's UI and UX: simplified the interface, removed redundant steps and clicks, improved accessibility, and added light and dark themes and an interactive floating action button.",
     isExpanded: true,
   },
   {
@@ -107,18 +251,26 @@ Self-hosted on a $5/month VPS (NestJS, Prisma, self-hosted Traccar, NGINX, CI/CD
   {
     id: "safulpay-website",
     title: "SafulPay Website",
-    period: { start: "11.2024" },
+    period: { start: "05.2026" },
     link: "https://safulpay.com/",
     logo: "/images/safulpay-icon-green.webp",
     image: "/images/projects/safulpay_hero.png",
-    skills: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "SEO",
+      "Performance",
+      "Accessibility",
+    ],
     description:
-      "SafulPay company website with pixel-perfect UI optimized for speed, accessibility and clear product storytelling.",
+      "Re-platformed the SafulPay corporate site from React and Vite to Next.js in a seven-day solo sprint, taking Lighthouse from 68 to 100 in all four categories while adding new sections. Removed layout shift by reserving space for decorative images, and escaped the JSON-LD to close an XSS path.",
   },
   {
     id: "khariar",
     title: "Khariar — AI-Powered ATS & Career Platform",
-    period: { start: "10.2025" },
+    period: { start: "10.2025", end: "03.2026" },
     link: "https://khariar.vercel.app/",
     logo: "https://khariar.vercel.app/favicon.png",
     image: "/images/projects/khariar_home.png",

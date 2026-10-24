@@ -1,7 +1,7 @@
 {
   "name": "lawal-oyinlola-resume",
   "version": "0.1.0",
-  "description": "Résumé and portfolio site for Lawal Oyinlola, Frontend Engineer (full-stack capable).",
+  "description": "Résumé of Lawal Oyinlola, software engineer and application security.",
   "homepage": "https://resume.lawaloyinlola.com",
   "license": "MIT",
   "author": {
@@ -43,6 +43,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "date-fns": "4.4.0",
     "dayjs": "^1.11.21",
     "jotai": "^2.20.0",
     "libphonenumber-js": "^1.13.4",
@@ -58,7 +59,7 @@
     "sharp": "^0.35.5",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
-    "vcard-creator": "^0.7.2"
+    "vcard-creator": "^1.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
@@ -66,6 +67,7 @@
     "@types/node": "^20.19.41",
     "@types/react": "19.2.16",
     "@types/react-dom": "19.2.3",
+    "@types/unist": "3.0.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.4.2",
     "eslint-config-prettier": "^10.1.8",
@@ -82,7 +84,6 @@
     "tailwindcss": "^4.3.0",
     "tw-animate-css": "^1.4.0",
     "typescript": "5.7.3",
-    "unist-builder": "3.0.0",
     "unist-util-visit": "^5.1.0"
   },
   "resolutions": {
@@ -98,7 +99,8 @@
       "js-yaml@4": "^4.3.2",
       "nanoid@3": "^3.3.18",
       "postcss": "^8.5.23",
-      "source-map-js": "^1.2.2"
+      "source-map-js": "^1.2.2",
+      "zod@4": "^4.6.6"
     },
     "auditConfig": {
       "ignoreGhsas": [
