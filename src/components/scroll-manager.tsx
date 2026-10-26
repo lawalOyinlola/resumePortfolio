@@ -69,6 +69,14 @@ export function ScrollManager() {
     const markActive = () => {
       lastActiveAt = Date.now();
     };
+    // A reload shortcut is not activity: pressing it after a long idle should
+    // still open the page at the top.
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const isReload =
+        event.key === "F5" ||
+        ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "r");
+      if (!isReload) markActive();
+    };
     const save = () => writeSaved({ y: window.scrollY, lastActiveAt });
 
     let saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -112,7 +120,7 @@ export function ScrollManager() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("keydown", markActive);
+    window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("pointerdown", markActive);
     window.addEventListener("pagehide", save);
     // Capture phase, so this runs before other click handlers on the link.
@@ -121,7 +129,7 @@ export function ScrollManager() {
     return () => {
       clearTimeout(saveTimer);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("keydown", markActive);
+      window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("pointerdown", markActive);
       window.removeEventListener("pagehide", save);
       document.removeEventListener("click", handleClick, true);
