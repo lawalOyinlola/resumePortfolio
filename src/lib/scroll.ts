@@ -4,7 +4,13 @@
  * back to the browser's default.
  */
 export function scrollToSection(target: string): boolean {
-  const id = decodeURIComponent(target.replace(/^#/, ""));
+  let id: string;
+  try {
+    id = decodeURIComponent(target.replace(/^#/, ""));
+  } catch {
+    // Malformed percent-encoding, such as "#%E0%A4%A": no such section.
+    return false;
+  }
   const element = id ? document.getElementById(id) : null;
   if (!element) return false;
 
