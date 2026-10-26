@@ -45,7 +45,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "4.4.0",
     "dayjs": "^1.11.21",
-    "jotai": "^2.20.0",
+    "jotai": "^3.0.1",
     "libphonenumber-js": "^1.13.4",
     "lucide-react": "^0.516.0",
     "motion": "^12.40.0",
