@@ -21,18 +21,19 @@ export const META_THEME_COLORS = {
 // local file can't be fetched.
 export const RESUME_DOWNLOADS = [
   {
+    label: "Software Engineer",
+    filename: "Oyinlola-Lawal-Software-Engineer-AppSec.pdf",
+    href: "/resume/Oyinlola-Lawal-Software-Engineer-AppSec.pdf",
+  },
+  {
+    label: "Application Security",
+    filename: "Oyinlola-Lawal-Application-Security.pdf",
+    href: "/resume/Oyinlola-Lawal-Application-Security.pdf",
+  },
+  {
     label: "Frontend Engineer",
     filename: "Oyinlola-Lawal-Frontend-Engineer.pdf",
     href: "/resume/Oyinlola-Lawal-Frontend-Engineer.pdf",
-    fallbackHref:
-      "https://drive.google.com/file/d/1ec5e1Z2HZFdKRLzudOXL9CltcCnKAl9l/view?usp=sharing",
-  },
-  {
-    label: "Software Engineer",
-    filename: "Oyinlola-Lawal-Software-Engineer.pdf",
-    href: "/resume/Oyinlola-Lawal-Software-Engineer.pdf",
-    fallbackHref:
-      "https://drive.google.com/file/d/1sr6rTlNtIkjbuSgDN7Zte59Uv6Uof-ws/view?usp=sharing",
   },
 ];
 
