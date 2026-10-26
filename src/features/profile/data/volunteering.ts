@@ -8,7 +8,7 @@ export const VOLUNTEERING: Experience[] = [
     companyName: "Winners Chapel International, Goderich",
     companyLogo: "https://www.wcigoderich.org/favicon.ico",
     companyWebsite: "https://www.wcigoderich.org",
-    companyWebsiteImage: "/images/projects/wci_goderich.png",
+    companyWebsiteImage: "/images/projects/wci_goderich.webp",
     positions: [
       {
         id: "it-specialist-2024",
