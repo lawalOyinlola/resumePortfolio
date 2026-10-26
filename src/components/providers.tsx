@@ -4,6 +4,7 @@ import { AppProgressProvider } from "@bprogress/next";
 import { Provider as JotaiProvider } from "jotai";
 import dynamic from "next/dynamic";
 
+import { ScrollManager } from "@/components/scroll-manager";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const Toaster = dynamic(
@@ -25,6 +26,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </AppProgressProvider>
 
         <Toaster />
+        <ScrollManager />
       </ThemeProvider>
     </JotaiProvider>
   );

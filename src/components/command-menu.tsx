@@ -45,6 +45,7 @@ import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { MAIN_NAV, RESUME_DOWNLOADS, UTM_PARAMS } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { useClickSound } from "@/hooks/soundcn/use-click-sound";
+import { scrollToSection } from "@/lib/scroll";
 import { addQueryParams } from "@/utils/url";
 
 import { Button } from "./ui/button";
@@ -91,7 +92,8 @@ export function CommandMenu() {
       setOpen(false);
       requestAnimationFrame(() => {
         if (target.startsWith("#")) {
-          window.location.hash = target;
+          // Scroll without adding the hash to the URL.
+          if (!scrollToSection(target)) window.location.hash = target;
         } else {
           router.push(target);
         }
