@@ -212,7 +212,7 @@ Security is part of the build: tenant isolation on every query, signed webhooks,
   {
     id: "lia",
     title: "LIA — LinkedIn Intelligent Assistant",
-    period: { start: "03.2025" },
+    period: { start: "11.2025", end: "03.2026" },
     link: "https://www.getlia.live/",
     image: "/images/projects/lia_extension.webp",
     skills: [
