@@ -99,7 +99,9 @@ jobs:
       # Compares the PR's lockfile with the base branch and fails if the PR
       # adds a package with a known moderate-or-worse advisory. `pnpm audit`
       # checks the whole tree; this check names what the PR itself adds, so
-      # the reviewer can account for each new package.
+      # the reviewer can account for each new package. Every scope fails, not
+      # just the default `runtime`: dev dependencies run during `next build`.
       - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: moderate
+          fail-on-scopes: runtime, development, unknown
