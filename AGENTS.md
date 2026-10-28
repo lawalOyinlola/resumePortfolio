@@ -20,7 +20,7 @@ The site started from the open-source template [ncdai/chanhdai.com](https://gith
 
 ```
 src/
-├── app/                  # Routes: home, llms.txt and .md routes, OG images, vCard, sitemap, robots, manifest
+├── app/                  # Routes: home, llms.txt and .md routes, /og (Open Graph image layout), vCard, sitemap, robots, manifest
 ├── components/           # Shared components. ui/ holds shadcn/ui primitives.
 ├── config/site.ts        # Site URL, résumé downloads, GitHub repository, UTM parameters
 ├── features/profile/
