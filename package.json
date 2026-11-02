@@ -47,7 +47,7 @@
     "dayjs": "^1.11.21",
     "jotai": "^3.0.1",
     "libphonenumber-js": "^1.13.4",
-    "lucide-react": "^0.516.0",
+    "lucide-react": "^1.59.0",
     "motion": "^12.40.0",
     "next": "16.4.2",
     "qss": "^3.0.0",
