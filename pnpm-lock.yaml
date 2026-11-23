@@ -129,8 +129,8 @@ importers:
         specifier: ^9.1.7
         version: 9.1.7
       libphonenumber-metadata-generator:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^2.0.6
+        version: 2.0.6
       lint-staged:
         specifier: ^17.6.0
         version: 17.6.0
@@ -2684,8 +2684,8 @@ packages:
   libphonenumber-js@1.13.15:
     resolution: {integrity: sha512-AHdhEQeDFEJ4GKDAQ9AwxChy+v2kUILUB3TGQRpkXMkWePjXTU/WQEzWVQoIx/Gz8fE73Wr5SEuZCy2vk8jrMQ==}
 
-  libphonenumber-metadata-generator@1.1.0:
-    resolution: {integrity: sha512-90cRx8tdV5rPuhFLsGFDuq8X6SjU7GFfiTa/WBncnfD1Igo7qPY5RSqtTWNzC+OY9wu80RwUx04PrWtz6RDPLw==}
+  libphonenumber-metadata-generator@2.0.6:
+    resolution: {integrity: sha512-AIcJuzdbOjlAPrnMjJJ3p+/xrF+SxZ/0lLj7lXJYZml8YV+FbZoPhRUIZxUvK7Ud8Rpt1U/Km9zM3UTEAbNU1A==}
     hasBin: true
 
   lightningcss-android-arm64@1.32.0:
@@ -3298,8 +3298,8 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sax@1.6.0:
-    resolution: {integrity: sha512-6R3J5M4AcbtLUdZmRv2SygeVaM7IhrLXu9BmnOGmmACak8fiUtOsYNWUS4uK7upbmHIBbLBeFeI//477BKLBzA==}
+  sax@1.6.1:
+    resolution: {integrity: sha512-42tBVwLWnaQvW5zc4HbZrTuWccECCZfBi92FDuwtqxasH+JbPB3/FOKb1m222K42R4WxuxzzMsTswfzgtSu64Q==}
     engines: {node: '>=11.0.0'}
 
   scheduler@0.28.0:
@@ -6317,7 +6317,7 @@ snapshots:
 
   libphonenumber-js@1.13.15: {}
 
-  libphonenumber-metadata-generator@1.1.0:
+  libphonenumber-metadata-generator@2.0.6:
     dependencies:
       minimist: 1.2.8
       xml2js: 0.6.2
@@ -7178,7 +7178,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sax@1.6.0: {}
+  sax@1.6.1: {}
 
   scheduler@0.28.0: {}
 
@@ -7631,7 +7631,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.6.0
+      sax: 1.6.1
       xmlbuilder: 11.0.1
 
   xmlbuilder@11.0.1: {}

@@ -73,7 +73,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-simple-import-sort": "^14.0.0",
     "husky": "^9.1.7",
-    "libphonenumber-metadata-generator": "^1.1.0",
+    "libphonenumber-metadata-generator": "^2.0.6",
     "lint-staged": "^17.6.0",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.1",
